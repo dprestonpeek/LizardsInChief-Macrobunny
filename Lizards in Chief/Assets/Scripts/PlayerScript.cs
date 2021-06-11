@@ -6,6 +6,8 @@ public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rb;
 
+    public bool KeyboardIsP1;
+
     public bool CanJump;
     public bool CanHold;
     public bool Jumping;
@@ -35,6 +37,7 @@ public class PlayerScript : MonoBehaviour
 
     public float xVelocity;
     public float yVelocity;
+    public float horLAxis;
     [SerializeField]
     public float jumpVelocity;
     [SerializeField]
@@ -60,11 +63,11 @@ public class PlayerScript : MonoBehaviour
             Falling = false;
         }
 
-        float horAxis = Input.GetAxis("Horizontal");
+        horLAxis = Input.GetAxis("Horizontal");
 
-        if (Mathf.Abs(horAxis) > .25f)
+        if (Mathf.Abs(horLAxis) > .25f)
         {
-            Walk(horAxis);
+            Walk(horLAxis);
             Walking = true;
         }
         else
