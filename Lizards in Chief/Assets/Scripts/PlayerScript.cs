@@ -11,9 +11,10 @@ public class PlayerScript : MonoBehaviour
     public bool CanJump;
     public bool CanHold;
     public bool Jumping;
-    public bool Holding;
+    public bool JumpHold;
     public bool Falling;
     public bool Walking;
+    public bool HoldingObj;
     public int Direction;
 
     [SerializeField]
@@ -45,22 +46,30 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     public float walkVelocity;
 
+    [SerializeField]
+    GameObject hands;
+    [SerializeField]
+    GameObject objInHands;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        objInHands = null;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        #region Movement
         if (IsGrounded())
         {
-            if (!Holding)
+            if (!JumpHold)
             {
                 CanJump = true;
             }
             Falling = false;
+            Jumping = false;
         }
 
         horLAxis = Input.GetAxis("Horizontal");
@@ -84,7 +93,7 @@ public class PlayerScript : MonoBehaviour
                 Jump();
                 CanJump = false;
             }
-            Holding = true;
+            JumpHold = true;
             if (Falling)
             {
                 FloatFall();
@@ -96,7 +105,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            Holding = false;
+            JumpHold = false;
         }
 
         yVelocity = rb.velocity.y;
@@ -104,9 +113,9 @@ public class PlayerScript : MonoBehaviour
         if (yVelocity > 0)
         {
             Jumping = true;
-            if (Holding)
+            if (JumpHold)
             {
-                AddHeight();
+                AddHeightToJump();
             }
         }
         else if (yVelocity < 0)
@@ -114,7 +123,7 @@ public class PlayerScript : MonoBehaviour
             Jumping = false;
             CanJump = false;
             Falling = true;
-            if (Holding)
+            if (JumpHold)
             {
 
             }
@@ -123,6 +132,18 @@ public class PlayerScript : MonoBehaviour
         {
             fallVelocity = yVelocity;
         }
+        #endregion
+
+        #region Inventory
+        if (Input.GetButton("Grab"))
+        {
+            GrabObject();
+        }
+        else
+        {
+            DropObject();
+        }
+        #endregion
     }
 
     void Walk(float dir)
@@ -145,7 +166,7 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
     }
 
-    void AddHeight()
+    void AddHeightToJump()
     {
         if (rb.velocity.y < jumpHeight)
         {
@@ -163,6 +184,44 @@ public class PlayerScript : MonoBehaviour
         string[] names = Input.GetJoystickNames();
     }
 
+    void GrabObject()
+    {
+        RaycastHit2D hit;
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.right * Direction, Color.yellow);
+
+        if (objInHands != null)
+        {
+            return;
+        }
+        // Does the ray intersect any objects
+        if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.right * Direction, 1, layerMask))
+        {
+            if (hit.transform.CompareTag("Object"))
+            {
+                objInHands = hit.transform.gameObject;
+                objInHands.GetComponent<Rigidbody2D>().isKinematic = true;
+                objInHands.transform.parent = hands.transform;
+                objInHands.transform.localPosition = Vector2.zero;
+                HoldingObj = true;
+            }
+        }
+        else
+        {
+        }
+    }
+
+    void DropObject()
+    {
+        if (objInHands != null)
+        {
+            objInHands.GetComponent<Rigidbody2D>().isKinematic = false;
+            objInHands.transform.parent = null;
+            HoldingObj = false;
+        }
+    }
+
     bool IsGrounded()
     {
         RaycastHit2D hit;
@@ -170,11 +229,11 @@ public class PlayerScript : MonoBehaviour
         layerMask = ~layerMask;
 
         // Does the ray intersect any objects
-        if (hit = Physics2D.Raycast(transform.position, Vector2.down, 1.05f, layerMask))
+        if (hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layerMask))
         {
             if (hit.transform.CompareTag("Floor"))
             {
-                Debug.DrawRay(transform.position, Vector2.down * 1.05f, Color.yellow);
+                Debug.DrawRay(transform.position, Vector2.down * 1.1f, Color.yellow);
                 return true;
             }
         }
