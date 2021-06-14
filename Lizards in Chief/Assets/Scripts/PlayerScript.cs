@@ -29,6 +29,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int floatyFall = 3;
+    [SerializeField]
+    [Range(1, 10)]
+    private int fallSpeed = 3;
 
     [SerializeField]
     [Range(1, 10)]
@@ -51,10 +54,13 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameObject objInHands;
 
+    ProtagAnimator anim;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponentInChildren<ProtagAnimator>();
         objInHands = null;
     }
 
@@ -70,6 +76,7 @@ public class PlayerScript : MonoBehaviour
             }
             Falling = false;
             Jumping = false;
+            anim.Grounded();
         }
 
         horLAxis = Input.GetAxis("Horizontal");
@@ -110,27 +117,37 @@ public class PlayerScript : MonoBehaviour
 
         yVelocity = rb.velocity.y;
 
-        if (yVelocity > 0)
+        if (yVelocity > .1f)
         {
             Jumping = true;
+            anim.Jumping();
+            anim.Falling();
             if (JumpHold)
             {
                 AddHeightToJump();
             }
         }
-        else if (yVelocity < 0)
+        else if (yVelocity < -.1f)
         {
             Jumping = false;
+            anim.Jumping();
             CanJump = false;
             Falling = true;
-            if (JumpHold)
-            {
-
-            }
+            anim.Falling();
+        }
+        else
+        {
+            Falling = false;
+            anim.Falling();
         }
         if (Falling)
         {
             fallVelocity = yVelocity;
+        }
+
+        if (!JumpHold)
+        {
+            ForceFall();
         }
         #endregion
 
@@ -143,6 +160,11 @@ public class PlayerScript : MonoBehaviour
         {
             DropObject();
         }
+        anim.Holding();
+        #endregion
+
+        #region Visuals
+        PutObjectInHands();
         #endregion
     }
 
@@ -184,6 +206,11 @@ public class PlayerScript : MonoBehaviour
         string[] names = Input.GetJoystickNames();
     }
 
+    void ForceFall()
+    {
+        rb.AddForce(Vector2.down * 5 * fallSpeed);
+    }
+
     void GrabObject()
     {
         RaycastHit2D hit;
@@ -201,9 +228,12 @@ public class PlayerScript : MonoBehaviour
             if (hit.transform.CompareTag("Object"))
             {
                 objInHands = hit.transform.gameObject;
-                objInHands.GetComponent<Rigidbody2D>().isKinematic = true;
+                objInHands.GetComponent<Rigidbody2D>().simulated = false;
+                objInHands.layer = 8;
+                objInHands.transform.eulerAngles = Vector2.zero;
                 objInHands.transform.parent = hands.transform;
                 objInHands.transform.localPosition = Vector2.zero;
+                PutObjectInHands();
                 HoldingObj = true;
             }
         }
@@ -212,12 +242,37 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Call each time an object is picked up, and each time the player changes direction
+    /// </summary>
+    void PutObjectInHands()
+    {
+        if (objInHands != null)
+        {
+            Vector2 newPos = hands.transform.localPosition;
+            newPos.x = .4f * Direction;
+            hands.transform.localPosition = newPos;
+            Vector3 newRot = hands.transform.rotation.eulerAngles;
+            if (Direction == 1)
+            {
+                newRot.y = 0;
+            }
+            if (Direction == -1)
+            {
+                newRot.y = 180;
+            }
+            hands.transform.eulerAngles = newRot;
+        }
+    }
+
     void DropObject()
     {
         if (objInHands != null)
         {
-            objInHands.GetComponent<Rigidbody2D>().isKinematic = false;
+            objInHands.GetComponent<Rigidbody2D>().simulated = true;
+            objInHands.layer = 0;
             objInHands.transform.parent = null;
+            objInHands = null;
             HoldingObj = false;
         }
     }

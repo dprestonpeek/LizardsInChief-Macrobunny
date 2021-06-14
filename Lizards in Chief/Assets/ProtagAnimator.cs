@@ -8,6 +8,7 @@ public class ProtagAnimator : MonoBehaviour
     SpriteRenderer sprite;
     PlayerScript player;
     // Start is called before the first frame update
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -43,5 +44,34 @@ public class ProtagAnimator : MonoBehaviour
         //Jumping & Falling
         anim.SetBool("Jumping", player.Jumping);
         anim.SetBool("Falling", player.Falling);
+
+        //Holding
+        anim.SetBool("Holding", player.HoldingObj);
+    }
+
+    public void Walking()
+    {
+        anim.SetBool("Walking", player.Walking);
+    }
+
+    public void Jumping()
+    {
+        anim.SetBool("Jumping", player.Jumping);
+    }
+
+    public void Falling()
+    {
+        anim.SetBool("Falling", player.Falling);
+    }
+
+    public void Holding()
+    {
+        anim.SetBool("Holding", player.HoldingObj);
+    }
+
+    public void Grounded()
+    {
+        anim.SetBool("Jumping", false);
+        anim.SetBool("Falling", false);
     }
 }
