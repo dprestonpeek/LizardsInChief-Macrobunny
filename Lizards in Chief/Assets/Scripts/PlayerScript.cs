@@ -14,8 +14,12 @@ public class PlayerScript : MonoBehaviour
     public bool JumpHold;
     public bool Falling;
     public bool Walking;
+    public bool Running;
+    public bool Dashing;
     public bool HoldingObj;
+    public bool CanGrabOrDrop = true;
     public int Direction;
+    public int PrevDirection;
 
     [SerializeField]
     [Range(1, 10)]
@@ -36,7 +40,6 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int walkSpeed = 5;
-    [SerializeField]
 
 
     public float xVelocity;
@@ -48,6 +51,12 @@ public class PlayerScript : MonoBehaviour
     public float fallVelocity;
     [SerializeField]
     public float walkVelocity;
+    [SerializeField]
+    public float rightJoystickHor;
+    [SerializeField]
+    public float rightJoystickVert;
+    [SerializeField]
+    public float rightJoystickMag;
 
     [SerializeField]
     GameObject hands;
@@ -55,19 +64,66 @@ public class PlayerScript : MonoBehaviour
     GameObject objInHands;
 
     ProtagAnimator anim;
+    PlayerInventory inventory;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<ProtagAnimator>();
+        inventory = GetComponentInChildren<PlayerInventory>();
         objInHands = null;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        #region Movement
+        DoMovement();
+
+        #region Inventory
+
+
+        if (Input.GetButton("Grab"))
+        {
+            if (CanGrabOrDrop)
+            {
+                if (!HoldingObj)
+                {
+                    CanGrabOrDrop = !GrabObject();
+                }
+                else
+                {
+                    DropObject();
+                    CanGrabOrDrop = false;
+                }
+            }
+        }
+        else
+        {
+            CanGrabOrDrop = true;
+        }
+
+        anim.Holding();
+
+        rightJoystickHor = Input.GetAxis("InventoryHor");
+        rightJoystickVert = Input.GetAxis("InventoryVert");
+
+        inventory.ShowInventory(rightJoystickHor, rightJoystickVert);
+        if (objInHands != null && !inventory.showingInventory && inventory.selectedSlot != -1)
+        {
+            inventory.StoreItem(objInHands);
+            Destroy(objInHands);
+            HoldingObj = false;
+        }
+        #endregion
+
+        #region Visuals
+        PutObjectInHands();
+        #endregion
+    }
+
+    void DoMovement()
+    {
         if (IsGrounded())
         {
             if (!JumpHold)
@@ -149,23 +205,26 @@ public class PlayerScript : MonoBehaviour
         {
             ForceFall();
         }
-        #endregion
 
-        #region Inventory
-        if (Input.GetButton("Grab"))
+        //if player is running at full speed
+        if (Running && PrevDirection != Direction)
         {
-            GrabObject();
+            Dashing = true;
+        }
+
+        if (Mathf.Abs(horLAxis) == 1)
+        {
+            if (!Running)
+            {
+                PrevDirection = Direction;
+                Running = true;
+            }
         }
         else
         {
-            DropObject();
+            Running = false;
+            Dashing = false;
         }
-        anim.Holding();
-        #endregion
-
-        #region Visuals
-        PutObjectInHands();
-        #endregion
     }
 
     void Walk(float dir)
@@ -211,7 +270,10 @@ public class PlayerScript : MonoBehaviour
         rb.AddForce(Vector2.down * 5 * fallSpeed);
     }
 
-    void GrabObject()
+    /// <summary>
+    /// Returns true if object is grabbed
+    /// </summary>
+    private bool GrabObject()
     {
         RaycastHit2D hit;
         int layerMask = 1 << 8;
@@ -220,7 +282,7 @@ public class PlayerScript : MonoBehaviour
 
         if (objInHands != null)
         {
-            return;
+            return false;
         }
         // Does the ray intersect any objects
         if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.right * Direction, 1, layerMask))
@@ -235,11 +297,10 @@ public class PlayerScript : MonoBehaviour
                 objInHands.transform.localPosition = Vector2.zero;
                 PutObjectInHands();
                 HoldingObj = true;
+                return true;
             }
         }
-        else
-        {
-        }
+        return false;
     }
 
     /// <summary>
