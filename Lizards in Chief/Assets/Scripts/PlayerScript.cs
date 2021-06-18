@@ -18,6 +18,8 @@ public class PlayerScript : MonoBehaviour
     public bool Dashing;
     public bool HoldingObj;
     public bool CanGrabOrDrop = true;
+    public bool StoringItem;
+    public bool EquippingItem;
     public int Direction;
     public int PrevDirection;
 
@@ -97,6 +99,7 @@ public class PlayerScript : MonoBehaviour
                     CanGrabOrDrop = false;
                 }
             }
+            inventory.selectedSlot = -1;
         }
         else
         {
@@ -108,12 +111,37 @@ public class PlayerScript : MonoBehaviour
         rightJoystickHor = Input.GetAxis("InventoryHor");
         rightJoystickVert = Input.GetAxis("InventoryVert");
 
-        inventory.ShowInventory(rightJoystickHor, rightJoystickVert);
-        if (objInHands != null && !inventory.showingInventory && inventory.selectedSlot != -1)
+        if (inventory.ShowInventory(rightJoystickHor, rightJoystickVert))
+        {
+            if (objInHands != null)
+            {
+                StoringItem = true;
+                Debug.Log("Storing");
+            }
+            else
+            {
+                EquippingItem = true;
+                Debug.Log("Equipping");
+            }
+        }
+        else if (StoringItem)
         {
             inventory.StoreItem(objInHands);
             Destroy(objInHands);
             HoldingObj = false;
+            StoringItem = false;
+        }
+        else if (EquippingItem)
+        {
+            GameObject item = inventory.EquipItem();
+            if (item != null)
+            {
+                item.transform.parent = hands.transform;
+                item.transform.localPosition = Vector3.zero;
+                objInHands = item;
+                HoldingObj = true;
+                EquippingItem = false;
+            }
         }
         #endregion
 

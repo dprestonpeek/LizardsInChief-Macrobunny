@@ -16,7 +16,8 @@ public class PlayerInventory : MonoBehaviour
     GameObject[] inventoryItems;
     Material hover;
     Material equip;
-    Material defMat;
+    Material defEmpty;
+    Material defFilled;
 
 
     // Start is called before the first frame update
@@ -29,23 +30,20 @@ public class PlayerInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inventoryCircle.transform.localScale.x > 0)
-        {
-            showingInventory = true;
-        }
-        else 
-        { 
-            showingInventory = false;
-        }
     }
 
-    public void ShowInventory(float x, float y)
+    public bool ShowInventory(float x, float y)
     {
         float amount = Vector3.Magnitude(new Vector3(x, y));
 
         if (amount < .25)
         {
             amount = 0;
+            showingInventory = false;
+        }
+        if (amount > .25f)
+        {
+            showingInventory = true;
         }
         if (amount > 1)
         {
@@ -53,54 +51,100 @@ public class PlayerInventory : MonoBehaviour
         }
         inventoryCircle.transform.localScale = Vector3.one * amount;
 
-        selectedSlot = PointToItem(x, y);
+        if (amount > 0)
+        {
+            selectedSlot = PointToItem(x, y);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void StoreItem(GameObject item)
     {
-        inventoryItems[selectedSlot] = item;
-        item.GetComponent<Rigidbody2D>().simulated = false;
-        GameObject invItem = Instantiate(item, inventorySlots[selectedSlot].transform);
-        invItem.transform.localScale *= .25f;
+        if (selectedSlot != -1 && inventoryItems[selectedSlot] == null)
+        {
+            inventoryItems[selectedSlot] = item;
+            GameObject invItem = Instantiate(item, inventorySlots[selectedSlot].transform);
+            inventoryItems[selectedSlot] = invItem;
+            invItem.transform.localScale = Vector3.one * .75f;
+            invItem.transform.localPosition = new Vector3(invItem.transform.localPosition.x, invItem.transform.localPosition.y, -1);
+            inventoryMeshes[selectedSlot].material = defFilled;
+        }
+        else
+        {
+            //swap items
+        }
+    }
+
+    public GameObject EquipItem()
+    {
+        if (selectedSlot != -1 && inventoryItems[selectedSlot] != null)
+        {
+            GameObject item = Instantiate(inventoryItems[selectedSlot]);
+            item.transform.localScale = Vector3.one;
+            item.transform.localPosition = new Vector3(item.transform.localPosition.x, item.transform.localPosition.y, 0);
+            inventoryMeshes[selectedSlot].material = defEmpty;
+            Destroy(inventoryItems[selectedSlot]);
+            return item;
+        }
+        return null;
     }
 
     /// <summary>
-    /// Point to an item in the player's inventory, release to select
+    /// Point to an item in the player's inventory, release to select. 
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
     private int PointToItem(float x, float y)
     {
-        selectedSlot = -1;
         //x == 1
         if (x >= .75f)
         {
-            if (y <= .25f && y >= -.25f)
+            if (y <= .25f && y >= -.25f)     //(1,0)
+            {   
                 return HoverItem(0);
-            if (y >= .75f)
-                return HoverItem(5);
-            if (y <= -.75f)
-                return HoverItem(7);
+            }
+            else if (amount != InventoryItems.FOUR)
+            {
+                if (y >= .75f)               //(1,1)
+                    return HoverItem(5);
+                if (amount != InventoryItems.SIX)
+                {
+                    if (y <= -.75f)              //(1,-1)
+                        return HoverItem(7);
+                }
+            }
         }
         //x == -1
         if (x <= -.75f)
         {
-            if (y <= .25f && y >= -.25f)
+            if (y <= .25f && y >= -.25f)     //(-1,0)
+            {
                 return HoverItem(2);
-            if (y >= .75f)
-                return HoverItem(4);
-            if (y <= -.75f)
-                return HoverItem(6);
+            }
+            else if (amount != InventoryItems.FOUR)
+            {
+                if (y >= .75f)               //(-1,1)
+                    return HoverItem(4);     
+                if (amount != InventoryItems.SIX)
+                {
+                    if (y <= -.75f)          //(-1,-1)
+                        return HoverItem(6);     
+                }
+            }
         }
         //x ==0
         if (x <= .25f && x >= -.25f)
         {
-            if (y >= .75f)
+            if (y >= .75f)               //(0,1)
                 return HoverItem(1);
-            if (y <= -.75f)
+            if (y <= -.75f)              //(0,-1)
                 return HoverItem(3);
         }
-        return -1;
+        return selectedSlot;
     }
 
     private int HoverItem(int slot)
@@ -111,31 +155,26 @@ public class PlayerInventory : MonoBehaviour
             inventorySlots[slot].GetComponent<MeshRenderer>().material = hover;
             return slot;
         }
-        return -1;
+        return selectedSlot;
     }
 
     private void DeselectAllItems()
     {
-        foreach (MeshRenderer mat in inventoryMeshes)
+        for (int i = 0; i < inventoryMeshes.Length; i++)
         {
-            if (mat != null)
+            if (inventoryItems[i] == null)
             {
-                mat.material = defMat;
+                inventoryMeshes[i].material = defEmpty;
+            }
+            else
+            {
+                inventoryMeshes[i].material = defFilled;
             }
         }
         if (selectedSlot != -1)
         {
             inventoryMeshes[selectedSlot].material = equip;
         }
-    }
-
-    private void EquipItem(int item)
-    {
-        foreach (MeshRenderer mat in inventoryMeshes)
-        {
-            mat.material = defMat;
-        }
-        inventorySlots[item].GetComponent<MeshRenderer>().material = equip;
     }
 
     private void InitializeSlots()
@@ -208,9 +247,13 @@ public class PlayerInventory : MonoBehaviour
             {
                 equip = dummySlot.material;
             }
-            if (dummySlot.name == "DummySlot Default")
+            if (dummySlot.name == "DummySlot DefaultEmpty")
             {
-                defMat = dummySlot.material;
+                defEmpty = dummySlot.material;
+            }
+            if (dummySlot.name == "DummySlot DefaultFilled")
+            {
+                defFilled = dummySlot.material;
             }
         }
     }
