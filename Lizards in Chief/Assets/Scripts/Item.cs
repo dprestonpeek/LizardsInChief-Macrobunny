@@ -14,7 +14,15 @@ public class Item
 
     public Item()
     {
-
+        switch(type)
+        {
+            case Type.PROJECTILE:
+                typeSettings = projSettings;
+                break;
+            case Type.CONSUMABLE:
+                typeSettings = consSettings;
+                break;
+        }
     }
 
     object[] projSettings;
