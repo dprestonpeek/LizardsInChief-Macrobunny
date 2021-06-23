@@ -154,6 +154,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (IsGrounded())
         {
+            jumpVelocity = 0;
             if (!JumpHold)
             {
                 CanJump = true;
@@ -184,7 +185,10 @@ public class PlayerScript : MonoBehaviour
                 Jump();
                 CanJump = false;
             }
-            JumpHold = true;
+            //if (CanHold)
+            //{
+                JumpHold = true;
+            //}
             if (Falling)
             {
                 FloatFall();
@@ -206,7 +210,8 @@ public class PlayerScript : MonoBehaviour
             Jumping = true;
             anim.Jumping();
             anim.Falling();
-            if (JumpHold)
+
+            if (JumpHold /*&& CanHold*/)
             {
                 AddHeightToJump();
             }
@@ -318,7 +323,9 @@ public class PlayerScript : MonoBehaviour
             if (hit.transform.CompareTag("Object"))
             {
                 objInHands = hit.transform.gameObject;
-                objInHands.GetComponent<Rigidbody2D>().simulated = false;
+                Rigidbody2D objRb = objInHands.GetComponent<Rigidbody2D>();
+                objRb.velocity = Vector2.zero;
+                objRb.simulated = false;
                 objInHands.layer = 8;
                 objInHands.transform.eulerAngles = Vector2.zero;
                 objInHands.transform.parent = hands.transform;
@@ -361,6 +368,9 @@ public class PlayerScript : MonoBehaviour
             objInHands.GetComponent<Rigidbody2D>().simulated = true;
             objInHands.layer = 0;
             objInHands.transform.parent = null;
+            Vector2 newPos = objInHands.transform.position;
+            newPos.x += 1 * Direction;
+            objInHands.transform.position = newPos;
             objInHands = null;
             HoldingObj = false;
         }

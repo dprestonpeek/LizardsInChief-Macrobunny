@@ -1789,7 +1789,7 @@ MonoBehaviour:
   EquippingItem: 0
   Direction: 0
   PrevDirection: 0
-  jumpSpeed: 7
+  jumpSpeed: 10
   jumpHeight: 6
   extraHeight: 6
   floatyFall: 4
