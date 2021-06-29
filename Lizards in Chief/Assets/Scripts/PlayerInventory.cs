@@ -73,10 +73,6 @@ public class PlayerInventory : MonoBehaviour
             invItem.transform.localPosition = new Vector3(invItem.transform.localPosition.x, invItem.transform.localPosition.y, -1);
             inventoryMeshes[selectedSlot].material = defFilled;
         }
-        else
-        {
-            //swap items
-        }
     }
 
     public GameObject EquipItem()
@@ -91,6 +87,33 @@ public class PlayerInventory : MonoBehaviour
             return item;
         }
         return null;
+    }
+
+    public GameObject SwapItems(GameObject itemFromHands)
+    {
+        if (selectedSlot != -1)
+        {
+            GameObject itemFromInv = Instantiate(inventoryItems[selectedSlot]);
+            Destroy(inventoryItems[selectedSlot]);
+            GameObject itemToInv = Instantiate(itemFromHands, inventorySlots[selectedSlot].transform);
+            Destroy(itemFromHands);
+            inventoryItems[selectedSlot] = itemToInv;
+            itemToInv.transform.localScale = Vector3.one * .75f;
+            itemToInv.transform.localPosition = new Vector3(itemToInv.transform.localPosition.x, itemToInv.transform.localPosition.y, -1);
+            itemFromInv.transform.localScale = Vector3.one;
+            itemFromInv.transform.localPosition = new Vector3(itemFromInv.transform.localPosition.x, itemFromInv.transform.localPosition.y, 0);
+            return itemFromInv;
+        }
+        return null;
+    }
+
+    public bool ItemExistsInSlot(int slot)
+    {
+        if (slot != -1 && inventoryItems[slot] != null)
+        {
+            return true;
+        }
+        return false;
     }
 
     /// <summary>

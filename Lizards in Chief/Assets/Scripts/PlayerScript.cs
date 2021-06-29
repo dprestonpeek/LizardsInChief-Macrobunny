@@ -8,20 +8,26 @@ public class PlayerScript : MonoBehaviour
 
     public bool KeyboardIsP1;
 
-    public bool CanJump;
-    public bool CanHold;
     public bool Jumping;
-    public bool JumpHold;
     public bool Falling;
     public bool Walking;
-    public bool Running;
-    public bool Dashing;
     public bool HoldingObj;
-    public bool CanGrabOrDrop = true;
-    public bool StoringItem;
-    public bool EquippingItem;
     public int Direction;
-    public int PrevDirection;
+
+    [SerializeField]
+    private bool HasUnlockedFloatFall;
+    [SerializeField]
+    private bool HasUnlockedDashing;
+
+    private bool CanJump;
+    private bool CanHold;
+    private bool JumpHold;
+    private bool Running;
+    private bool Dashing;
+    private bool CanGrabOrDrop = true;
+    private bool StoringItem;
+    private bool EquippingItem;
+    private int PrevDirection;
 
     [SerializeField]
     [Range(1, 10)]
@@ -114,21 +120,30 @@ public class PlayerScript : MonoBehaviour
         if (inventory.ShowInventory(rightJoystickHor, rightJoystickVert))
         {
             if (objInHands != null)
-            {
                 StoringItem = true;
-                Debug.Log("Storing");
-            }
             else
-            {
                 EquippingItem = true;
-                Debug.Log("Equipping");
-            }
         }
         else if (StoringItem)
         {
-            inventory.StoreItem(objInHands);
-            Destroy(objInHands);
-            HoldingObj = false;
+            if (inventory.ItemExistsInSlot(inventory.selectedSlot))
+            {
+                GameObject equippedItem = inventory.SwapItems(objInHands);
+                if (equippedItem != null)
+                {
+                    equippedItem.transform.parent = hands.transform;
+                    equippedItem.transform.localPosition = Vector3.zero;
+                    objInHands = equippedItem;
+                    HoldingObj = true;
+                    EquippingItem = false;
+                }
+            }
+            else
+            {
+                inventory.StoreItem(objInHands);
+                Destroy(objInHands);
+                HoldingObj = false;
+            }
             StoringItem = false;
         }
         else if (EquippingItem)
@@ -185,11 +200,8 @@ public class PlayerScript : MonoBehaviour
                 Jump();
                 CanJump = false;
             }
-            //if (CanHold)
-            //{
-                JumpHold = true;
-            //}
-            if (Falling)
+            JumpHold = true;
+            if (Falling && HasUnlockedFloatFall)
             {
                 FloatFall();
             }
