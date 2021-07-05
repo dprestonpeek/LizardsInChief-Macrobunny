@@ -1491,6 +1491,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786986, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
       propertyPath: m_RootOrder
@@ -1545,11 +1550,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5029904546602786987, guid: f46b71e0fb254e44b9b0a90df2a898b0,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786997, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}

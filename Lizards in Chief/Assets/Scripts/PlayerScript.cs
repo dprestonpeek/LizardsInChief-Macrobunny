@@ -6,12 +6,11 @@ public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rb;
 
-    public bool KeyboardIsP1;
-
     public bool Jumping;
     public bool Falling;
     public bool Walking;
     public bool HoldingObj;
+    public bool GrabbingLedge;
     public int Direction;
 
     [SerializeField]
@@ -24,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     private bool JumpHold;
     private bool Running;
     private bool Dashing;
+    private bool LedgeJumping;
     private bool CanGrabOrDrop = true;
     private bool StoringItem;
     private bool EquippingItem;
@@ -48,6 +48,10 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int walkSpeed = 5;
+    [SerializeField]
+    [Range(1, 10)]
+    private int dashSpeed = 5;
+
 
 
     public float xVelocity;
@@ -181,6 +185,16 @@ public class PlayerScript : MonoBehaviour
 
         horLAxis = Input.GetAxis("Horizontal");
 
+        if (GrabbingLedge)
+        {
+            Jumping = false;
+            Falling = false;
+        }
+        else
+        {
+            DetermineDirection(horLAxis);
+        }
+
         if (Mathf.Abs(horLAxis) > .25f)
         {
             Walk(horLAxis);
@@ -197,8 +211,15 @@ public class PlayerScript : MonoBehaviour
         {
             if (CanJump)
             {
-                Jump();
+                if (GrabbingLedge)
+                {
+                    GrabbingLedge = false;
+                    rb.simulated = true;
+                    anim.LedgeGrabbing();
+                }
+                Jump(jumpSpeed);
                 CanJump = false;
+                anim.Jumping();
             }
             JumpHold = true;
             if (Falling && HasUnlockedFloatFall)
@@ -231,6 +252,7 @@ public class PlayerScript : MonoBehaviour
         else if (yVelocity < -.1f)
         {
             Jumping = false;
+            LedgeJumping = false;
             anim.Jumping();
             CanJump = false;
             Falling = true;
@@ -270,9 +292,46 @@ public class PlayerScript : MonoBehaviour
             Running = false;
             Dashing = false;
         }
+
+        if (Input.GetButtonDown("Dash"))
+        {
+            if (Jumping)
+            {
+                
+            }
+            else if (Falling)
+            {
+
+            }
+            else
+            {
+
+            }
+            Dash();
+        }
+
+        if (Input.GetButton("Grab") && !objInHands && !LedgeJumping)
+        {
+            GrabLedge();
+        }
+        else
+        {
+            LetGoLedge();
+        }
+
+        if (GrabbingLedge && !JumpHold)
+        {
+            CanJump = true;
+        }
     }
 
     void Walk(float dir)
+    {
+        rb.velocity = new Vector2(dir * 1 * walkSpeed, rb.velocity.y);
+        walkVelocity = xVelocity;
+    }
+
+    void DetermineDirection (float dir)
     {
         if (dir > 0)
         {
@@ -282,14 +341,11 @@ public class PlayerScript : MonoBehaviour
         {
             Direction = -1;
         }
-
-        rb.velocity = new Vector2(dir * 1 * walkSpeed, rb.velocity.y);
-        walkVelocity = xVelocity;
     }
 
-    void Jump()
+    void Jump(int force)
     {
-        rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
     }
 
     void AddHeightToJump()
@@ -313,6 +369,11 @@ public class PlayerScript : MonoBehaviour
     void ForceFall()
     {
         rb.AddForce(Vector2.down * 5 * fallSpeed);
+    }
+
+    void Dash()
+    {
+        rb.AddForce(Vector2.right * Direction * dashSpeed * 5, ForceMode2D.Impulse);
     }
 
     /// <summary>
@@ -386,6 +447,34 @@ public class PlayerScript : MonoBehaviour
             objInHands = null;
             HoldingObj = false;
         }
+    }
+
+    void GrabLedge()
+    {
+        RaycastHit2D hit;
+        int layerMask = LayerMask.GetMask("Ledge");
+
+        // Does the ray intersect any objects
+        if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y + 1), Vector2.right * Direction, 2, layerMask))
+        {
+            if (hit.collider.CompareTag("Ledge"))
+            {
+                Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), Vector2.right * Direction * 1.25f, Color.yellow);
+
+                rb.velocity = Vector2.zero;
+                rb.simulated = false;
+                transform.position = Vector2.Lerp(transform.position, new Vector2(hit.collider.transform.position.x + (.75f * Direction), hit.collider.transform.position.y), .25f);
+                GrabbingLedge = true;
+                anim.LedgeGrabbing();
+            }
+        }
+    }
+
+    void LetGoLedge()
+    {
+        rb.simulated = true;
+        GrabbingLedge = false;
+        anim.LedgeGrabbing();
     }
 
     bool IsGrounded()

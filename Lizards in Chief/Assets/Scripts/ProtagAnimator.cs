@@ -69,6 +69,11 @@ public class ProtagAnimator : MonoBehaviour
         anim.SetBool("Holding", player.HoldingObj);
     }
 
+    public void LedgeGrabbing()
+    {
+        anim.SetBool("LedgeGrabbing", player.GrabbingLedge);
+    }
+
     public void Grounded()
     {
         anim.SetBool("Jumping", false);
