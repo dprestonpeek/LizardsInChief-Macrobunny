@@ -22,7 +22,9 @@ public class PlayerScript : MonoBehaviour
     private bool CanHold;
     private bool JumpHold;
     private bool Running;
-    private bool Dashing;
+    public bool Dashing;
+    public bool CanDash;
+    public bool PostDash;
     private bool LedgeJumping;
     private bool CanGrabOrDrop = true;
     private bool StoringItem;
@@ -51,7 +53,12 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int dashSpeed = 5;
-
+    [SerializeField]
+    [Range(1, 10)]
+    private int dashTime = 1;
+    [SerializeField]
+    [Range(1, 10)]
+    private int PostDashTime = 10;
 
 
     public float xVelocity;
@@ -77,6 +84,9 @@ public class PlayerScript : MonoBehaviour
 
     ProtagAnimator anim;
     PlayerInventory inventory;
+
+    public float timer = 0.0f;
+    public int globalSeconds = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -195,6 +205,15 @@ public class PlayerScript : MonoBehaviour
             DetermineDirection(horLAxis);
         }
 
+        if (Mathf.Abs(horLAxis) == 1)
+        {
+            CanDash = true;
+        }
+        else
+        {
+            CanDash = false;
+            Dashing = false;
+        }
         if (Mathf.Abs(horLAxis) > .25f)
         {
             Walk(horLAxis);
@@ -273,12 +292,6 @@ public class PlayerScript : MonoBehaviour
             ForceFall();
         }
 
-        //if player is running at full speed
-        if (Running && PrevDirection != Direction)
-        {
-            Dashing = true;
-        }
-
         if (Mathf.Abs(horLAxis) == 1)
         {
             if (!Running)
@@ -290,10 +303,24 @@ public class PlayerScript : MonoBehaviour
         else
         {
             Running = false;
-            Dashing = false;
         }
 
-        if (Input.GetButtonDown("Dash"))
+        if (Dashing)
+        {
+            Dashing = TimerTick(dashTime);
+            if (!Dashing)
+            {
+                CanDash = false;
+                PostDash = true;
+                Dashing = false;
+            }
+        }
+        else if (PostDash)
+        {
+            PostDash = TimerTick(PostDashTime);
+            CanDash = false;
+        }
+        else if (Input.GetButtonDown("Dash") && CanDash)
         {
             if (Jumping)
             {
@@ -305,9 +332,8 @@ public class PlayerScript : MonoBehaviour
             }
             else
             {
-
+                Dash();
             }
-            Dash();
         }
 
         if (Input.GetButton("Grab") && !objInHands && !LedgeJumping)
@@ -327,7 +353,19 @@ public class PlayerScript : MonoBehaviour
 
     void Walk(float dir)
     {
-        rb.velocity = new Vector2(dir * 1 * walkSpeed, rb.velocity.y);
+        float airwalkModifier = 1;
+        if (Jumping || Falling)
+        {
+            airwalkModifier -= (Mathf.Abs(yVelocity) / 50);
+        }
+        if (Dashing)
+        {
+            rb.velocity = new Vector2(dir * airwalkModifier * dashSpeed, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(dir * airwalkModifier * walkSpeed, rb.velocity.y);
+        }
         walkVelocity = xVelocity;
     }
 
@@ -373,7 +411,20 @@ public class PlayerScript : MonoBehaviour
 
     void Dash()
     {
-        rb.AddForce(Vector2.right * Direction * dashSpeed * 5, ForceMode2D.Impulse);
+        Dashing = true;
+    }
+
+    bool TimerTick(float limit)
+    {
+        if (limit <= timer)
+        {
+            globalSeconds = 0;
+            timer = 0;
+            return false;
+        }
+        timer += Time.deltaTime;
+        int seconds = (int)timer % 60;
+        return true;
     }
 
     /// <summary>
@@ -463,7 +514,7 @@ public class PlayerScript : MonoBehaviour
 
                 rb.velocity = Vector2.zero;
                 rb.simulated = false;
-                transform.position = Vector2.Lerp(transform.position, new Vector2(hit.collider.transform.position.x + (.75f * Direction), hit.collider.transform.position.y), .25f);
+                transform.position = Vector2.Lerp(transform.position, new Vector2(hit.collider.transform.position.x + (.75f * Direction) + (hit.collider.transform.localScale.x), hit.collider.transform.position.y), .05f);
                 GrabbingLedge = true;
                 anim.LedgeGrabbing();
             }
