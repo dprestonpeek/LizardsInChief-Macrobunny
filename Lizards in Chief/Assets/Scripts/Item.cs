@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item
+public class Item : MonoBehaviour
 {
-    private enum Type { PROJECTILE, CONSUMABLE, POWERUP, GUN, MELEE, EXPLOSIVE, OBJECT }
+    public enum Type { PROJECTILE, CONSUMABLE, POWERUP, GUN, MELEE, EXPLOSIVE, OBJECT }
 
     [SerializeField]
-    Type type;
+    public Type type;
+
+    [SerializeField]
+    public bool forceDirection;
 
     [SerializeField]
     object[] typeSettings;
@@ -21,6 +24,9 @@ public class Item
                 break;
             case Type.CONSUMABLE:
                 typeSettings = consSettings;
+                break;
+            case Type.GUN:
+                typeSettings = gunSettings;
                 break;
         }
     }

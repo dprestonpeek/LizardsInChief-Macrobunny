@@ -81,6 +81,10 @@ public class PlayerScript : MonoBehaviour
     GameObject hands;
     [SerializeField]
     GameObject objInHands;
+    [SerializeField]
+    Item itemInHands;
+    [SerializeField]
+    LaserBlaster gunInHands;
 
     ProtagAnimator anim;
     PlayerInventory inventory;
@@ -95,6 +99,7 @@ public class PlayerScript : MonoBehaviour
         anim = GetComponentInChildren<ProtagAnimator>();
         inventory = GetComponentInChildren<PlayerInventory>();
         objInHands = null;
+        itemInHands = null;
     }
 
     // Update is called once per frame
@@ -148,6 +153,7 @@ public class PlayerScript : MonoBehaviour
                     equippedItem.transform.parent = hands.transform;
                     equippedItem.transform.localPosition = Vector3.zero;
                     objInHands = equippedItem;
+                    itemInHands = objInHands.GetComponent<Item>();
                     HoldingObj = true;
                     EquippingItem = false;
                 }
@@ -168,14 +174,26 @@ public class PlayerScript : MonoBehaviour
                 item.transform.parent = hands.transform;
                 item.transform.localPosition = Vector3.zero;
                 objInHands = item;
+                itemInHands = objInHands.GetComponent<Item>();
                 HoldingObj = true;
                 EquippingItem = false;
             }
         }
         #endregion
 
+        #region Weapons
+        if (gunInHands)
+        {
+            if (Input.GetAxis("Fire1") == 1)
+            {
+                Debug.Log("Bang");
+                gunInHands.Shoot(Vector2.right * Direction);
+            }
+        }
+        #endregion
+
         #region Visuals
-        PutObjectInHands();
+        HoldObjectInHands();
         #endregion
     }
 
@@ -454,7 +472,7 @@ public class PlayerScript : MonoBehaviour
                 objInHands.transform.eulerAngles = Vector2.zero;
                 objInHands.transform.parent = hands.transform;
                 objInHands.transform.localPosition = Vector2.zero;
-                PutObjectInHands();
+                HoldObjectInHands();
                 HoldingObj = true;
                 return true;
             }
@@ -465,14 +483,23 @@ public class PlayerScript : MonoBehaviour
     /// <summary>
     /// Call each time an object is picked up, and each time the player changes direction
     /// </summary>
-    void PutObjectInHands()
+    void HoldObjectInHands()
     {
         if (objInHands != null)
         {
+            if (!itemInHands)
+            {
+                itemInHands = objInHands.GetComponent<Item>();
+            }
+            if (itemInHands.type == Item.Type.GUN)
+            {
+                gunInHands = objInHands.GetComponent<LaserBlaster>();
+            }
+
             Vector2 newPos = hands.transform.localPosition;
             newPos.x = .4f * Direction;
             hands.transform.localPosition = newPos;
-            Vector3 newRot = hands.transform.rotation.eulerAngles;
+            Vector2 newRot = hands.transform.eulerAngles;
             if (Direction == 1)
             {
                 newRot.y = 0;
@@ -482,6 +509,12 @@ public class PlayerScript : MonoBehaviour
                 newRot.y = 180;
             }
             hands.transform.eulerAngles = newRot;
+            if (objInHands && objInHands.GetComponent<Item>().forceDirection)
+            {
+                Vector2 newHandRot = objInHands.transform.rotation.eulerAngles;
+                newHandRot.y = newRot.y;
+                objInHands.transform.eulerAngles = newHandRot;
+            }
         }
     }
 
@@ -496,7 +529,12 @@ public class PlayerScript : MonoBehaviour
             newPos.x += 1 * Direction;
             objInHands.transform.position = newPos;
             objInHands = null;
+            itemInHands = null;
             HoldingObj = false;
+
+            Vector2 newRot = hands.transform.eulerAngles;
+            newRot.y = 0;
+            hands.transform.eulerAngles = newRot;
         }
     }
 
