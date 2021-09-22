@@ -14,9 +14,13 @@ public class PlayerScript : MonoBehaviour
     public int Direction;
 
     [SerializeField]
-    private bool HasUnlockedFloatFall;
+    public bool HasUnlockedFloatFall;
     [SerializeField]
-    private bool HasUnlockedDashing;
+    public bool HasUnlockedDashing;
+    [SerializeField]
+    public bool HasUnlockedLedgeGrabbing;
+    [SerializeField]
+    public bool HasUnlockedDoubleJump;
 
     private bool CanJump;
     private bool CanHold;
@@ -30,6 +34,11 @@ public class PlayerScript : MonoBehaviour
     private bool StoringItem;
     private bool EquippingItem;
     private int PrevDirection;
+
+    List<string> grabbableTags = new List<string>
+    {
+        "Object", "Weapon"
+    };
 
     [SerializeField]
     [Range(1, 10)]
@@ -46,6 +55,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int fallSpeed = 3;
+    private int jumpCount = 0;
 
     [SerializeField]
     [Range(1, 10)]
@@ -84,10 +94,12 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     Item itemInHands;
     [SerializeField]
-    LaserBlaster gunInHands;
+    GunBehavior gunInHands;
 
     ProtagAnimator anim;
     PlayerInventory inventory;
+    [SerializeField]
+    GameMenuController gameMenu;
 
     public float timer = 0.0f;
     public int globalSeconds = 0;
@@ -100,6 +112,8 @@ public class PlayerScript : MonoBehaviour
         inventory = GetComponentInChildren<PlayerInventory>();
         objInHands = null;
         itemInHands = null;
+
+        LoadAbilities();
     }
 
     // Update is called once per frame
@@ -186,7 +200,6 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetAxis("Fire1") == 1)
             {
-                Debug.Log("Bang");
                 gunInHands.Shoot(Vector2.right * Direction);
             }
         }
@@ -197,11 +210,49 @@ public class PlayerScript : MonoBehaviour
         #endregion
     }
 
+    private void Update()
+    {
+        #region Pause
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (Time.timeScale == 1)
+                gameMenu.Toggle(true);
+            else
+                gameMenu.Toggle(false);
+        }
+        #endregion
+    }
+
+    #region Abilities
+    private void LoadAbilities()
+    {
+        HasUnlockedFloatFall = IntToBool(PlayerPrefs.GetInt("floatfall", 0));
+        HasUnlockedDashing = IntToBool(PlayerPrefs.GetInt("dashing", 0));
+        HasUnlockedLedgeGrabbing = IntToBool(PlayerPrefs.GetInt("ledgegrab", 0));
+        HasUnlockedDoubleJump = IntToBool(PlayerPrefs.GetInt("doublejump", 0));
+    }
+
+    public GunBehavior GetGunInHands()
+    {
+        if (!gunInHands)
+            return null;
+        return gunInHands.GetComponent<GunBehavior>();
+    }
+
+    private bool IntToBool(int input)
+    {
+        if (input == 0)
+            return false;
+        else 
+            return true;
+    }
+    #endregion
     void DoMovement()
     {
         if (IsGrounded())
         {
             jumpVelocity = 0;
+            jumpCount = 0;
             if (!JumpHold)
             {
                 CanJump = true;
@@ -223,7 +274,7 @@ public class PlayerScript : MonoBehaviour
             DetermineDirection(horLAxis);
         }
 
-        if (Mathf.Abs(horLAxis) == 1)
+        if (Mathf.Abs(horLAxis) > Mathf.Abs(.8f))
         {
             CanDash = true;
         }
@@ -255,6 +306,7 @@ public class PlayerScript : MonoBehaviour
                     anim.LedgeGrabbing();
                 }
                 Jump(jumpSpeed);
+                jumpCount++;
                 CanJump = false;
                 anim.Jumping();
             }
@@ -271,6 +323,8 @@ public class PlayerScript : MonoBehaviour
         else
         {
             JumpHold = false;
+            if (jumpCount == 1 && HasUnlockedDoubleJump)
+                CanJump = true;
         }
 
         yVelocity = rb.velocity.y;
@@ -348,13 +402,13 @@ public class PlayerScript : MonoBehaviour
             {
 
             }
-            else
+            else if (HasUnlockedDashing)
             {
                 Dash();
             }
         }
 
-        if (Input.GetButton("Grab") && !objInHands && !LedgeJumping)
+        if (Input.GetButton("Grab") && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping)
         {
             GrabLedge();
         }
@@ -462,7 +516,7 @@ public class PlayerScript : MonoBehaviour
         // Does the ray intersect any objects
         if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.right * Direction, 1, layerMask))
         {
-            if (hit.transform.CompareTag("Object"))
+            if (grabbableTags.Contains(hit.transform.tag))
             {
                 objInHands = hit.transform.gameObject;
                 Rigidbody2D objRb = objInHands.GetComponent<Rigidbody2D>();
@@ -493,7 +547,11 @@ public class PlayerScript : MonoBehaviour
             }
             if (itemInHands.type == Item.Type.GUN)
             {
-                gunInHands = objInHands.GetComponent<LaserBlaster>();
+                gunInHands = objInHands.GetComponent<GunBehavior>();
+
+                WeaponMenuController weaponMenu = gameMenu.GetWeaponsMenu();
+                gunInHands.SetFireRate(weaponMenu.GetFireRate());
+                gunInHands.SetRicochets(weaponMenu.GetRicochets());
             }
 
             Vector2 newPos = hands.transform.localPosition;

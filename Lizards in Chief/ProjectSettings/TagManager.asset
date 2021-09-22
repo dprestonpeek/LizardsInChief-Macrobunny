@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Ledge
   - Weapon
+  - Menu
   layers:
   - Default
   - TransparentFX

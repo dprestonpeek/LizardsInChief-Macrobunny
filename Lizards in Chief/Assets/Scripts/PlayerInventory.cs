@@ -36,12 +36,12 @@ public class PlayerInventory : MonoBehaviour
     {
         float amount = Vector3.Magnitude(new Vector3(x, y));
 
-        if (amount < .25)
+        if (amount < .75)
         {
             amount = 0;
             showingInventory = false;
         }
-        if (amount > .25f)
+        if (amount > .75f)
         {
             showingInventory = true;
         }
