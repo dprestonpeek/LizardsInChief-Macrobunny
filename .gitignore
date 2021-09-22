@@ -65,4 +65,5 @@ crashlytics-build.properties
 
 Assets/HoudiniEngineAssetCache/Working/
 heu_session.txt
-Lizards in Chief/Library/ArtifactDB/*
+Lizards in Chief/Library/**
+Lizards in Chief/Temp/**
