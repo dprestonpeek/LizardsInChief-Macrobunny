@@ -2786,6 +2786,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
+      propertyPath: glideFall
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
       propertyPath: jumpSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -2808,6 +2813,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PostDashTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: footstepSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
@@ -2897,7 +2907,7 @@ PrefabInstance:
     - target: {fileID: 7282045181558849892, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ToggleFloatFall
+      value: ToggleGlide
       objectReference: {fileID: 0}
     - target: {fileID: 7282045181558849892, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}

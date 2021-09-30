@@ -9,7 +9,7 @@ public class AbilitiesMenuController : MonoBehaviour
     GameMenuController menu;
     PlayerScript player;
     [SerializeField]
-    Toggle floatFall;
+    Toggle glide;
     [SerializeField]
     Toggle dashing;
     [SerializeField]
@@ -21,7 +21,7 @@ public class AbilitiesMenuController : MonoBehaviour
     void Awake()
     {
         player = menu.GetPlayer();
-        floatFall.isOn = player.HasUnlockedFloatFall;
+        glide.isOn = player.HasUnlockedGlide;
         dashing.isOn = player.HasUnlockedDashing;
         ledgeGrab.isOn = player.HasUnlockedLedgeGrabbing;
         doubleJump.isOn = player.HasUnlockedDoubleJump;
@@ -34,15 +34,15 @@ public class AbilitiesMenuController : MonoBehaviour
             player = menu.GetPlayer();
     }
 
-    public void ToggleFloatFall()
+    public void ToggleGlide()
     {
         if (!player)
             return;
-        player.HasUnlockedFloatFall = floatFall.isOn;
+        player.HasUnlockedGlide = glide.isOn;
         int unlock = 0;
-        if (floatFall.isOn)
+        if (glide.isOn)
             unlock = 1;
-        PlayerPrefs.SetInt("floatfall", unlock);
+        PlayerPrefs.SetInt("glide", unlock);
         PlayerPrefs.Save();
     }
     public void ToggleDashing()

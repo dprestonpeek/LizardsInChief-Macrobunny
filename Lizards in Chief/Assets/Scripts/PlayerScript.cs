@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     AudioClip walk2;
 
     float lastBlipX;
+    public float lastTurnAround;
     bool rightStep = true;
     bool playStep = true;
 
@@ -28,7 +29,7 @@ public class PlayerScript : MonoBehaviour
     public int Direction;
 
     [SerializeField]
-    public bool HasUnlockedFloatFall;
+    public bool HasUnlockedGlide;
     [SerializeField]
     public bool HasUnlockedDashing;
     [SerializeField]
@@ -36,13 +37,15 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     public bool HasUnlockedDoubleJump;
 
-    private bool CanJump;
+    public bool CanJump;
     private bool CanHold;
     private bool JumpHold;
+    public bool BackwardsJumping;
     private bool Running;
     private bool Dashing;
     private bool CanDash;
     private bool PostDash;
+    private bool CanGlide;
     public bool LookBack;
     private bool LedgeJumping;
     private bool CanGrabOrDrop = true;
@@ -50,8 +53,8 @@ public class PlayerScript : MonoBehaviour
     private bool EquippingItem;
     private int PrevDirection;
 
-    private bool DoubleJump = false;
-    private bool FallingDoubleJump = false;
+    public bool DoubleJump = false;
+    public bool FallingDoubleJump = false;
 
     List<string> grabbableTags = new List<string>
     {
@@ -71,8 +74,8 @@ public class PlayerScript : MonoBehaviour
     [Range(1, 10)]
     private int extraHeightSpeed = 1;
     [SerializeField]
-    [Range(1, 10)]
-    private int floatyFall = 3;
+    [Range(1, 3)]
+    private int glideFall = 1;
     [SerializeField]
     [Range(1, 15)]
     private int fallSpeed = 3;
@@ -83,13 +86,19 @@ public class PlayerScript : MonoBehaviour
     private int walkSpeed = 5;
     [SerializeField]
     [Range(1, 10)]
+    private int footstepSpeed = 1;
+    [SerializeField]
+    [Range(1, 10)]
     private int dashSpeed = 5;
     [SerializeField]
     [Range(1, 10)]
     private int dashTime = 1;
+    [Range(1, 10)]
+    [SerializeField]
+    private int PostDashTime = 10;
     [SerializeField]
     [Range(1, 10)]
-    private int PostDashTime = 10;
+    private int lookbackThreshold = 1;
     public float dashWalkTransition = 0;
 
 
@@ -125,7 +134,6 @@ public class PlayerScript : MonoBehaviour
 
     private float timer = 0.0f;
     private int globalSeconds = 0;
-    public int frameTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -135,6 +143,7 @@ public class PlayerScript : MonoBehaviour
         inventory = GetComponentInChildren<PlayerInventory>();
         objInHands = null;
         itemInHands = null;
+        lastTurnAround = transform.position.x;
 
         LoadAbilities();
     }
@@ -249,7 +258,7 @@ public class PlayerScript : MonoBehaviour
     #region Abilities
     private void LoadAbilities()
     {
-        HasUnlockedFloatFall = IntToBool(PlayerPrefs.GetInt("floatfall", 0));
+        HasUnlockedGlide = IntToBool(PlayerPrefs.GetInt("glide", 0));
         HasUnlockedDashing = IntToBool(PlayerPrefs.GetInt("dashing", 0));
         HasUnlockedLedgeGrabbing = IntToBool(PlayerPrefs.GetInt("ledgegrab", 0));
         HasUnlockedDoubleJump = IntToBool(PlayerPrefs.GetInt("doublejump", 0));
@@ -287,6 +296,7 @@ public class PlayerScript : MonoBehaviour
             Falling = false;
             Jumping = false;
             DoubleJump = false;
+            BackwardsJumping = false;
             anim.Grounded();
         }
 
@@ -296,8 +306,9 @@ public class PlayerScript : MonoBehaviour
         {
             Jumping = false;
             Falling = false;
+            BackwardsJumping = false;
         }
-        else
+        else if (!BackwardsJumping)
         {
             DetermineDirection(horLAxis);
         }
@@ -318,43 +329,7 @@ public class PlayerScript : MonoBehaviour
 
             if (!Jumping && !Falling)
             {
-                if (transform.position.x != lastBlipX)
-                {
-                    if (Direction == 1)
-                    {
-                        if (transform.position.x > lastBlipX + .5f)
-                        {
-                            if (rightStep)
-                            {
-                                audio.PlayOneShot(walk1);
-                                rightStep = false;
-                            }
-                            else
-                            {
-                                audio.PlayOneShot(walk2);
-                                rightStep = true;
-                            }
-                            lastBlipX = transform.position.x;
-                        }
-                    }
-                    else if (Direction == -1)
-                    {
-                        if (transform.position.x < lastBlipX - .5f)
-                        {
-                            if (rightStep)
-                            {
-                                audio.PlayOneShot(walk1);
-                                rightStep = false;
-                            }
-                            else
-                            {
-                                audio.PlayOneShot(walk2);
-                                rightStep = true;
-                            }
-                            lastBlipX = transform.position.x;
-                        }
-                    }
-                }
+                PlayFootsteps();
             }
         }
         else
@@ -364,41 +339,7 @@ public class PlayerScript : MonoBehaviour
 
         xVelocity = rb.velocity.x;
 
-        if (Input.GetButton("Jump"))
-        {
-            if (CanJump)
-            {
-                if (GrabbingLedge)
-                {
-                    GrabbingLedge = false;
-                    rb.simulated = true;
-                    anim.LedgeGrabbing();
-                }
-                Jump(jumpSpeed);
-                jumpCount++;
-                CanJump = false;
-                anim.Jumping();
-            }
-            JumpHold = true;
-            if (Falling)
-            {
-                if (HasUnlockedFloatFall && !CanJump)
-                    FloatFall();
-            }
-            if (yVelocity > jumpVelocity)
-            {
-                jumpVelocity = yVelocity;
-            }
-        }
-        else
-        {
-            JumpHold = false;
-            if (jumpCount == 1 && HasUnlockedDoubleJump)
-            {
-                CanJump = true;
-                DoubleJump = true;
-            }
-        }
+        DoJumpMovement();
 
         yVelocity = rb.velocity.y;
 
@@ -431,6 +372,7 @@ public class PlayerScript : MonoBehaviour
         else
         {
             Falling = false;
+            BackwardsJumping = false;
             anim.Falling();
         }
         if (Falling)
@@ -447,7 +389,6 @@ public class PlayerScript : MonoBehaviour
         {
             if (!Running)
             {
-                PrevDirection = Direction;
                 Running = true;
             }
         }
@@ -502,6 +443,95 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    void PlayFootsteps()
+    {
+        if (transform.position.x != lastBlipX)
+        {
+            if (Direction == 1)
+            {
+                if (transform.position.x > lastBlipX + (footstepSpeed * .1f))
+                {
+                    if (rightStep)
+                    {
+                        audio.PlayOneShot(walk1);
+                        rightStep = false;
+                    }
+                    else
+                    {
+                        audio.PlayOneShot(walk2);
+                        rightStep = true;
+                    }
+                    lastBlipX = transform.position.x;
+                }
+            }
+            else if (Direction == -1)
+            {
+                if (transform.position.x < lastBlipX - (footstepSpeed * .1f))
+                {
+                    if (rightStep)
+                    {
+                        audio.PlayOneShot(walk1);
+                        rightStep = false;
+                    }
+                    else
+                    {
+                        audio.PlayOneShot(walk2);
+                        rightStep = true;
+                    }
+                    lastBlipX = transform.position.x;
+                }
+            }
+        }
+    }
+
+    void DoJumpMovement()
+    {
+        if (Input.GetButton("Jump"))
+        {
+            JumpHold = true;
+            if (CanJump)
+            {
+                if (GrabbingLedge)
+                {
+                    GrabbingLedge = false;
+                    rb.simulated = true;
+                    anim.LedgeGrabbing();
+                }
+                if (LookBack)
+                {
+                    BackwardsJumping = true;
+                }
+                Jump(jumpSpeed);
+                jumpCount++;
+                CanJump = false;
+                anim.Jumping();
+                CanGlide = true;
+            }
+            else
+            {
+                if (yVelocity < -0.25f)
+                {
+                    if (HasUnlockedGlide && !CanJump && !DoubleJump && !IsGrounded())
+                        Glide();
+                }
+            }
+
+            if (yVelocity > jumpVelocity)
+            {
+                jumpVelocity = yVelocity;
+            }
+        }
+        else
+        {
+            JumpHold = false;
+            if (jumpCount == 1 && HasUnlockedDoubleJump)
+            {
+                CanJump = true;
+                DoubleJump = true;
+            }
+        }
+    }
+
     void Walk(float dir)
     {
         float airwalkModifier = 1;
@@ -526,29 +556,38 @@ public class PlayerScript : MonoBehaviour
 
     void DetermineDirection (float dir)
     {
-        if ((dir < 0 && Direction == 1) || (dir > 0 && Direction == -1))
-            LookBack = true;
-
+        PrevDirection = Direction;
         if (dir > 0)
         {
-            if (Direction == 1 && frameTimer > 10)
-                LookBack = false;
             Direction = 1;
         }
         else if (dir < 0)
         {
-            if (Direction == -1 && frameTimer > 10)
-                LookBack = false;
             Direction = -1;
+        }
+
+        if (PrevDirection != Direction)
+        {
+            LookBack = true;
+            lastTurnAround = transform.position.x;
         }
         if (LookBack)
         {
-            frameTimer++;
+            if (transform.position.x < lastTurnAround - (lookbackThreshold * .1f) && Direction == -1 ||
+                transform.position.x > lastTurnAround + (lookbackThreshold * .1f) && Direction == 1)
+            {
+                LookBack = false;
+            }
+        }
+
+        if ((transform.position.x > lastTurnAround - (lookbackThreshold * .1f) && transform.position.x <= lastTurnAround && Direction == -1) ||
+            transform.position.x < lastTurnAround + (lookbackThreshold * .1f) && transform.position.x >= lastTurnAround && Direction == 1)
+        {
+            LookBack = true;
         }
         else
-        {
-            frameTimer = 0;
-        }
+            LookBack = false;
+
         anim.LookingBack();
     }
 
@@ -580,10 +619,10 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void FloatFall()
+    void Glide()
     {
-        rb.AddForce(Vector2.up * 2 * floatyFall);
-        string[] names = Input.GetJoystickNames();
+        rb.velocity = new Vector2(rb.velocity.x, (4 - glideFall) * -1);
+        //rb.AddForce(Vector2.up * 2 * glideFall);
     }
 
     void ForceFall()
@@ -761,7 +800,7 @@ public class PlayerScript : MonoBehaviour
         // Does the ray intersect any objects
         if (hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layerMask))
         {
-            if (hit.transform.CompareTag("Floor") || hit.transform.CompareTag("Wall"))
+            if (hit.transform.CompareTag("Floor") || hit.transform.CompareTag("Wall") || hit.transform.CompareTag("Object"))
             {
                 Debug.DrawRay(transform.position, Vector2.down * 1.1f, Color.yellow);
                 return true;
