@@ -37,7 +37,7 @@ public class BlasterBullet : MonoBehaviour
             Destroy(gameObject);
             //Award points
         }
-        if (!other.gameObject.Equals(sourceWeapon))
+        if (!other.gameObject.Equals(sourceWeapon) && !other.gameObject.CompareTag("Bullet"))
         {
             if (ricochetCount == ricochetLimit)
             {
@@ -52,9 +52,12 @@ public class BlasterBullet : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (rb.velocity.x < .1f && rb.velocity.y < .1f)
+        if (!other.gameObject.Equals(sourceWeapon) && !other.gameObject.CompareTag("Bullet"))
         {
-            Destroy(gameObject);
+            if (rb.velocity.x < .1f && rb.velocity.y < .1f)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

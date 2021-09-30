@@ -47,6 +47,22 @@ public class ProtagAnimator : MonoBehaviour
 
         //Holding
         anim.SetBool("Holding", player.HoldingObj);
+
+        ////Looking Back
+        //if (player.LookBack)
+        //{
+        //    if (player.HoldingObj)
+        //    {
+        //        anim.SetBool("LookBackHold", player.LookBack);
+        //    }
+        //    else
+        //    {
+        //        anim.SetBool("LookBack", player.LookBack);
+        //    }
+        //}
+        //else if (player.LookBack)
+        //{
+        //}
     }
 
     public void Walking()
@@ -72,6 +88,25 @@ public class ProtagAnimator : MonoBehaviour
     public void LedgeGrabbing()
     {
         anim.SetBool("LedgeGrabbing", player.GrabbingLedge);
+    }
+
+    public void LookingBack()
+    {
+        if (player.HoldingObj && player.LookBack)
+        {
+            anim.SetBool("LookingBackHold", true);
+            anim.SetBool("LookingBack", false);
+        }
+        else if (player.LookBack)
+        {
+            anim.SetBool("LookingBack", true);
+            anim.SetBool("LookingBackHold", false);
+        }
+        else
+        {
+            anim.SetBool("LookingBack", false);
+            anim.SetBool("LookingBackHold", false);
+        }
     }
 
     public void Grounded()

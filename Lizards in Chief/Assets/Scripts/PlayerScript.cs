@@ -5,6 +5,20 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
     Rigidbody2D rb;
+    [SerializeField]
+    AudioSource audio;
+    [SerializeField]
+    AudioClip jump;
+    [SerializeField]
+    AudioClip land;
+    [SerializeField]
+    AudioClip walk1;
+    [SerializeField]
+    AudioClip walk2;
+
+    float lastBlipX;
+    bool rightStep = true;
+    bool playStep = true;
 
     public bool Jumping;
     public bool Falling;
@@ -26,14 +40,18 @@ public class PlayerScript : MonoBehaviour
     private bool CanHold;
     private bool JumpHold;
     private bool Running;
-    public bool Dashing;
-    public bool CanDash;
-    public bool PostDash;
+    private bool Dashing;
+    private bool CanDash;
+    private bool PostDash;
+    public bool LookBack;
     private bool LedgeJumping;
     private bool CanGrabOrDrop = true;
     private bool StoringItem;
     private bool EquippingItem;
     private int PrevDirection;
+
+    private bool DoubleJump = false;
+    private bool FallingDoubleJump = false;
 
     List<string> grabbableTags = new List<string>
     {
@@ -51,9 +69,12 @@ public class PlayerScript : MonoBehaviour
     private int extraHeight = 6;
     [SerializeField]
     [Range(1, 10)]
-    private int floatyFall = 3;
+    private int extraHeightSpeed = 1;
     [SerializeField]
     [Range(1, 10)]
+    private int floatyFall = 3;
+    [SerializeField]
+    [Range(1, 15)]
     private int fallSpeed = 3;
     private int jumpCount = 0;
 
@@ -69,6 +90,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int PostDashTime = 10;
+    public float dashWalkTransition = 0;
 
 
     public float xVelocity;
@@ -101,8 +123,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameMenuController gameMenu;
 
-    public float timer = 0.0f;
-    public int globalSeconds = 0;
+    private float timer = 0.0f;
+    private int globalSeconds = 0;
+    public int frameTimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -200,7 +223,7 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetAxis("Fire1") == 1)
             {
-                gunInHands.Shoot(Vector2.right * Direction);
+                gunInHands.Shoot(Direction);
             }
         }
         #endregion
@@ -257,8 +280,13 @@ public class PlayerScript : MonoBehaviour
             {
                 CanJump = true;
             }
+            if (Falling)
+            {
+                audio.PlayOneShot(land);
+            }
             Falling = false;
             Jumping = false;
+            DoubleJump = false;
             anim.Grounded();
         }
 
@@ -287,6 +315,47 @@ public class PlayerScript : MonoBehaviour
         {
             Walk(horLAxis);
             Walking = true;
+
+            if (!Jumping && !Falling)
+            {
+                if (transform.position.x != lastBlipX)
+                {
+                    if (Direction == 1)
+                    {
+                        if (transform.position.x > lastBlipX + .5f)
+                        {
+                            if (rightStep)
+                            {
+                                audio.PlayOneShot(walk1);
+                                rightStep = false;
+                            }
+                            else
+                            {
+                                audio.PlayOneShot(walk2);
+                                rightStep = true;
+                            }
+                            lastBlipX = transform.position.x;
+                        }
+                    }
+                    else if (Direction == -1)
+                    {
+                        if (transform.position.x < lastBlipX - .5f)
+                        {
+                            if (rightStep)
+                            {
+                                audio.PlayOneShot(walk1);
+                                rightStep = false;
+                            }
+                            else
+                            {
+                                audio.PlayOneShot(walk2);
+                                rightStep = true;
+                            }
+                            lastBlipX = transform.position.x;
+                        }
+                    }
+                }
+            }
         }
         else
         {
@@ -311,9 +380,10 @@ public class PlayerScript : MonoBehaviour
                 anim.Jumping();
             }
             JumpHold = true;
-            if (Falling && HasUnlockedFloatFall)
+            if (Falling)
             {
-                FloatFall();
+                if (HasUnlockedFloatFall && !CanJump)
+                    FloatFall();
             }
             if (yVelocity > jumpVelocity)
             {
@@ -324,7 +394,10 @@ public class PlayerScript : MonoBehaviour
         {
             JumpHold = false;
             if (jumpCount == 1 && HasUnlockedDoubleJump)
+            {
                 CanJump = true;
+                DoubleJump = true;
+            }
         }
 
         yVelocity = rb.velocity.y;
@@ -335,7 +408,7 @@ public class PlayerScript : MonoBehaviour
             anim.Jumping();
             anim.Falling();
 
-            if (JumpHold /*&& CanHold*/)
+            if (JumpHold && !DoubleJump)
             {
                 AddHeightToJump();
             }
@@ -348,6 +421,12 @@ public class PlayerScript : MonoBehaviour
             CanJump = false;
             Falling = true;
             anim.Falling();
+            if (jumpCount == 1 && HasUnlockedDoubleJump && !JumpHold)
+            {
+                CanJump = true;
+                DoubleJump = true;
+                FallingDoubleJump = true;
+            }
         }
         else
         {
@@ -434,6 +513,10 @@ public class PlayerScript : MonoBehaviour
         {
             rb.velocity = new Vector2(dir * airwalkModifier * dashSpeed, rb.velocity.y);
         }
+        else if (PostDash && (Jumping || Falling))
+        {
+            dashWalkTransition = Vector2.Lerp(new Vector2(dashSpeed, 0), new Vector2(walkSpeed, 0), .5f).x;
+        }
         else
         {
             rb.velocity = new Vector2(dir * airwalkModifier * walkSpeed, rb.velocity.y);
@@ -443,19 +526,46 @@ public class PlayerScript : MonoBehaviour
 
     void DetermineDirection (float dir)
     {
+        if ((dir < 0 && Direction == 1) || (dir > 0 && Direction == -1))
+            LookBack = true;
+
         if (dir > 0)
         {
+            if (Direction == 1 && frameTimer > 10)
+                LookBack = false;
             Direction = 1;
         }
         else if (dir < 0)
         {
+            if (Direction == -1 && frameTimer > 10)
+                LookBack = false;
             Direction = -1;
         }
+        if (LookBack)
+        {
+            frameTimer++;
+        }
+        else
+        {
+            frameTimer = 0;
+        }
+        anim.LookingBack();
     }
 
-    void Jump(int force)
+    void Jump(float force)
     {
+        if (DoubleJump)
+        {
+            if (FallingDoubleJump)
+            {
+                //force *= 1.5f;
+                FallingDoubleJump = false;
+                rb.velocity = new Vector2(rb.velocity.x, 0);
+            }
+            DoubleJump = false;
+        }
         rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        audio.PlayOneShot(jump);
     }
 
     void AddHeightToJump()
@@ -513,8 +623,26 @@ public class PlayerScript : MonoBehaviour
         {
             return false;
         }
-        // Does the ray intersect any objects
+        // Does the ray intersect any objects horizontally adjacent
         if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.right * Direction, 1, layerMask))
+        {
+            if (grabbableTags.Contains(hit.transform.tag))
+            {
+                objInHands = hit.transform.gameObject;
+                Rigidbody2D objRb = objInHands.GetComponent<Rigidbody2D>();
+                objRb.velocity = Vector2.zero;
+                objRb.simulated = false;
+                objInHands.layer = 8;
+                objInHands.transform.eulerAngles = Vector2.zero;
+                objInHands.transform.parent = hands.transform;
+                objInHands.transform.localPosition = Vector2.zero;
+                HoldObjectInHands();
+                HoldingObj = true;
+                return true;
+            }
+        }
+        // Does the ray intersect any objects vertically downward?
+        else if (hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.4f), Vector2.down, 1, layerMask))
         {
             if (grabbableTags.Contains(hit.transform.tag))
             {
@@ -633,7 +761,7 @@ public class PlayerScript : MonoBehaviour
         // Does the ray intersect any objects
         if (hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, layerMask))
         {
-            if (hit.transform.CompareTag("Floor"))
+            if (hit.transform.CompareTag("Floor") || hit.transform.CompareTag("Wall"))
             {
                 Debug.DrawRay(transform.position, Vector2.down * 1.1f, Color.yellow);
                 return true;

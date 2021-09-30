@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     PlayerScript player;
+    [SerializeField]
+    float heightLimit = 4;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +17,9 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         float yPos;
-        if (player.transform.position.y > 4)
+        if (player.transform.position.y > heightLimit)
         {
-            yPos = player.transform.position.y - 4;
+            yPos = player.transform.position.y - heightLimit;
         }
         else
         {
