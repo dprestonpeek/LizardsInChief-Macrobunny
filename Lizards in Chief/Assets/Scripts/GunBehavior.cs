@@ -23,6 +23,8 @@ public class GunBehavior : MonoBehaviour
     [Range(1, 10)]
     int fireRate = 3;
 
+    PlayerScript player;
+
     float timer = 0.0f;
     int globalSeconds = 0;
     bool waitToFire = false;
@@ -55,13 +57,16 @@ public class GunBehavior : MonoBehaviour
     {
         for (int i = 0; i < numberBullets; i++)
         {
+            Vector2 bulletDir = direction;
             if (i > 0)
             {
-                bulletSpawn.rotation = Quaternion.Euler(bulletSpawn.rotation.eulerAngles.x, bulletSpawn.rotation.eulerAngles.y, Random.Range(-5, 5));
+                bulletDir.x += Random.Range(-.15f, .15f);
+                bulletDir.y += Random.Range(-.15f, .15f);
+                //bulletSpawn.rotation = Quaternion.Euler(direction.x, direction.y, Random.Range(-5, 5));
             }
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
             BlasterBullet behavior = bullet.GetComponent<BlasterBullet>();
-            bullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.right * bulletSpeed * 10, ForceMode2D.Impulse);
+            bullet.GetComponent<Rigidbody2D>().AddForce(bulletDir * bulletSpeed * 10, ForceMode2D.Impulse);
             behavior.SetRicochetCount(bulletRicochets);
             behavior.SetSourceWeapon(gameObject);
         }
@@ -71,13 +76,12 @@ public class GunBehavior : MonoBehaviour
 
     private void Update()
     {
+        if (!player)
+        {
+            player = GetComponentInParent<PlayerScript>();
+        }
         if (waitToFire)
             waitToFire = TimerTick((10 - Mathf.Round(fireRate)) / 7);
-    }
-
-    public void SetFireRate(int newRate)
-    {
-        fireRate = newRate;
     }
 
     public void SetRicochets(int newRicos)

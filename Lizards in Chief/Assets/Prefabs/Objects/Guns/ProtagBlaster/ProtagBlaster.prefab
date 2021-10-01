@@ -147,7 +147,7 @@ MonoBehaviour:
   numberBullets: 1
   bulletSpeed: 4
   bulletRicochets: 0
-  fireRate: 6
+  fireRate: 5
   timelimit: 0
 --- !u!82 &855604834021171652
 AudioSource:

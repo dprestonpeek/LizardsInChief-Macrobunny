@@ -47,6 +47,7 @@ public class BlasterBullet : MonoBehaviour
             {
                 EntitySimple entity = other.gameObject.GetComponent<EntitySimple>();
                 entity.TakeDamage(damage);
+                Destroy(gameObject);
             }
             catch
             {
@@ -70,6 +71,11 @@ public class BlasterBullet : MonoBehaviour
             {
                 ricochetCount++;
             }
+        }
+        if (other.gameObject.CompareTag("OneShot"))
+        {
+            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 

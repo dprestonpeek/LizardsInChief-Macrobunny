@@ -20,30 +20,12 @@ public class WeaponMenuController : MonoBehaviour
     void Start()
     {
         player = menu.GetPlayer();
-        fireRate.value = PlayerPrefs.GetInt("firerate", defFireRate);
         ricochets.value = PlayerPrefs.GetInt("ricochets", defRicochets);
     }
 
     private void Update()
     {
 
-    }
-
-    public void SetFireRate()
-    {
-        if (!player || !player.GetGunInHands())
-            return;
-        else
-        {
-            player.GetGunInHands().SetFireRate(Mathf.RoundToInt(fireRate.value));
-            PlayerPrefs.SetInt("firerate", defFireRate);
-            PlayerPrefs.Save();
-        }
-    }
-
-    public int GetFireRate()
-    {
-        return Mathf.RoundToInt(fireRate.value);
     }
 
     public void SetRicochets()

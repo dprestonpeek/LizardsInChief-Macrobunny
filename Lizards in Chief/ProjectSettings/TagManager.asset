@@ -12,6 +12,7 @@ TagManager:
   - Menu
   - Bullet
   - Entity
+  - OneShot
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - Player
   - Ledge
-  - 
+  - Entity
   - 
   - 
   - 

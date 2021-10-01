@@ -150,7 +150,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameMenuController gameMenu;
     [SerializeField]
-    GameObject crosshair;
+    public GameObject crosshair;
 
     private float timer = 0.0f;
     private int globalSeconds = 0;
@@ -292,9 +292,12 @@ public class PlayerScript : MonoBehaviour
 
     public void DecreaseHeath(int amount)
     {
-        healthBar.value -= amount;
-        healthText.text = healthBar.value.ToString();
-        iFramesOn = true;
+        if (!iFramesOn)
+        {
+            healthBar.value -= amount;
+            healthText.text = healthBar.value.ToString();
+            iFramesOn = true;
+        }
     }
 
     public void IncreaseHealth(int amount)
@@ -783,7 +786,6 @@ public class PlayerScript : MonoBehaviour
                 gunInHands = objInHands.GetComponent<GunBehavior>();
 
                 WeaponMenuController weaponMenu = gameMenu.GetWeaponsMenu();
-                gunInHands.SetFireRate(weaponMenu.GetFireRate());
                 gunInHands.SetRicochets(weaponMenu.GetRicochets());
             }
 

@@ -30,11 +30,21 @@ public class EntitySimple : MonoBehaviour
     [Range(1, 100)]
     int health = 10;
     [SerializeField]
+    [Range(1, 10)]
+    int antiRotation = 4;
+    [SerializeField]
     bool checkForLedge = true;
     [SerializeField]
     bool startFacingLeft = true;
 
+    public bool takingDamage = false;
+    public bool changingDir = false;
     int Direction;
+
+    List<string> directionChangingTags = new List<string>() { "Wall", "Floor", "Object", "Ledge", "Player", "Entity" };
+
+    private float timer = 0.0f;
+    private int globalSeconds = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +64,21 @@ public class EntitySimple : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Walk();
+        IsGrounded();
+        if (takingDamage)
+        {
+            if (Mathf.Abs(rb.velocity.x) < 1)
+                takingDamage = false;
+        }
+        else if (isGrounded)
+            Walk();
+
+        if (changingDir)
+        {
+            changingDir = TimerTick(1 / antiRotation);
+        }
     }
 
     public void TakeDamage(int amount)
@@ -67,15 +89,11 @@ public class EntitySimple : MonoBehaviour
             Instantiate(killSound);
             Destroy(gameObject);
         }
+        takingDamage = true;
     }
 
-    void Walk()
+    void IsGrounded()
     {
-        transform.position = new Vector2(transform.position.x + .01f * walkSpeed * Direction, transform.position.y);
-        //rb.AddForce(Vector2.right * walkSpeed * Direction);
-        //rb.velocity = new Vector2(walkSpeed * Direction, rb.velocity.y);
-        anim.speed = animSpeed / 2;
-
         RaycastHit2D hit;
         int layerMask = 1 << 8;
         layerMask = ~layerMask;
@@ -106,16 +124,33 @@ public class EntitySimple : MonoBehaviour
         {
             if (!hit.collider.gameObject.Equals(gameObject))
             {
-                if (hit.collider.gameObject.CompareTag("Wall") || hit.collider.gameObject.CompareTag("Floor") || hit.collider.gameObject.CompareTag("Object"))
+                if (directionChangingTags.Contains(hit.collider.gameObject.tag))
                     ChangeDirection();
             }
         }
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y), Vector2.right * Direction * 1.25f, Color.yellow);
+    }
+
+    void Walk()
+    {
+        transform.position = new Vector2(transform.position.x + .01f * walkSpeed * Direction, transform.position.y);
+        //rb.AddForce(Vector2.right * walkSpeed * Direction);
+        //rb.velocity = new Vector2(walkSpeed * Direction, rb.velocity.y);
+        anim.speed = animSpeed / 2;
     }
 
     void ChangeDirection()
     {
-        Direction *= -1;
-        spriteRenderer.flipX = !spriteRenderer.flipX;
+        if (isGrounded && !changingDir)
+        {
+            changingDir = true;
+            Direction *= -1;
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+        else
+        {
+            isGrounded = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -123,13 +158,10 @@ public class EntitySimple : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerScript player = other.gameObject.GetComponent<PlayerScript>();
-            if (!player.iFramesOn)
-            {
-                player.DecreaseHeath(damageDealt);
-            }
+            player.DecreaseHeath(damageDealt);
             ChangeDirection();
         }
-        else if(other.gameObject.CompareTag("Object") || other.gameObject.CompareTag("Wall"))
+        else if(directionChangingTags.Contains(other.gameObject.tag))
         {
             ChangeDirection();
         }
@@ -137,9 +169,22 @@ public class EntitySimple : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Wall"))
+        if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Ledge"))
         {
             ChangeDirection();
         }
+    }
+
+    bool TimerTick(float limit)
+    {
+        if (limit <= timer)
+        {
+            globalSeconds = 0;
+            timer = 0;
+            return false;
+        }
+        timer += Time.deltaTime;
+        int seconds = (int)timer % 60;
+        return true;
     }
 }

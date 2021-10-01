@@ -12,7 +12,7 @@ public class DestroyAfterPlaying : MonoBehaviour
     {
         if (!source.isPlaying)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 }
