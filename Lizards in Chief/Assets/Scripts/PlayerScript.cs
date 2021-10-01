@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -16,16 +17,22 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     AudioClip walk2;
 
+    [SerializeField]
+    Slider healthBar;
+    [SerializeField]
+    Text healthText;
+
     float lastBlipX;
     public float lastTurnAround;
     bool rightStep = true;
-    bool playStep = true;
 
     public bool Jumping;
     public bool Falling;
     public bool Walking;
     public bool HoldingObj;
     public bool GrabbingLedge;
+    public bool iFramesOn;
+    public bool LookBack;
     public int Direction;
 
     [SerializeField]
@@ -40,17 +47,18 @@ public class PlayerScript : MonoBehaviour
     public bool CanJump;
     private bool CanHold;
     private bool JumpHold;
-    public bool BackwardsJumping;
+    private bool BackwardsJumping;
     private bool Running;
     private bool Dashing;
     private bool CanDash;
     private bool PostDash;
     private bool CanGlide;
-    public bool LookBack;
     private bool LedgeJumping;
     private bool CanGrabOrDrop = true;
     private bool StoringItem;
     private bool EquippingItem;
+    private bool Aiming;
+    private bool UsingUtility;
     private int PrevDirection;
 
     public bool DoubleJump = false;
@@ -79,6 +87,9 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 15)]
     private int fallSpeed = 3;
+    [SerializeField]
+    [Range(1, 5)]
+    private int strength = 1;
     private int jumpCount = 0;
 
     [SerializeField]
@@ -99,12 +110,19 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     [Range(1, 10)]
     private int lookbackThreshold = 1;
-    public float dashWalkTransition = 0;
-
+    [SerializeField]
+    [Range(0, 10)]
+    private int iFrames;
+    [SerializeField]
+    [Range(0, 1)]
+    private float iFrameTime;
+    private int curriFrames = 0;
+    private float dashWalkTransition = 0;
 
     public float xVelocity;
     public float yVelocity;
     public float horLAxis;
+    public float vertLAxis;
     [SerializeField]
     public float jumpVelocity;
     [SerializeField]
@@ -131,6 +149,8 @@ public class PlayerScript : MonoBehaviour
     PlayerInventory inventory;
     [SerializeField]
     GameMenuController gameMenu;
+    [SerializeField]
+    GameObject crosshair;
 
     private float timer = 0.0f;
     private int globalSeconds = 0;
@@ -154,7 +174,6 @@ public class PlayerScript : MonoBehaviour
         DoMovement();
 
         #region Inventory
-
 
         if (Input.GetButton("Grab"))
         {
@@ -232,13 +251,20 @@ public class PlayerScript : MonoBehaviour
         {
             if (Input.GetAxis("Fire1") == 1)
             {
-                gunInHands.Shoot(Direction);
+                if (Aiming)
+                    gunInHands.Shoot(crosshair.transform.localPosition);
+                else 
+                    gunInHands.Shoot(Vector2.right * Direction);
             }
         }
         #endregion
 
         #region Visuals
         HoldObjectInHands();
+        if (Input.GetAxis("Utility") == 1)
+            UseUtility();
+        else
+            StopUsingUtility();
         #endregion
     }
 
@@ -264,11 +290,41 @@ public class PlayerScript : MonoBehaviour
         HasUnlockedDoubleJump = IntToBool(PlayerPrefs.GetInt("doublejump", 0));
     }
 
+    public void DecreaseHeath(int amount)
+    {
+        healthBar.value -= amount;
+        healthText.text = healthBar.value.ToString();
+        iFramesOn = true;
+    }
+
+    public void IncreaseHealth(int amount)
+    {
+        healthBar.value += amount / 100;
+    }
+
     public GunBehavior GetGunInHands()
     {
         if (!gunInHands)
             return null;
         return gunInHands.GetComponent<GunBehavior>();
+    }
+
+    private void RunIFrames()
+    {
+        if (curriFrames < iFrames)
+        {
+            if (!TimerTick(iFrameTime))
+            {
+                curriFrames++;
+                anim.gameObject.SetActive(!anim.gameObject.activeSelf);
+            }
+        }
+        else
+        {
+            iFramesOn = false;
+            curriFrames = 0;
+            anim.gameObject.SetActive(true);
+        }
     }
 
     private bool IntToBool(int input)
@@ -301,6 +357,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         horLAxis = Input.GetAxis("Horizontal");
+        vertLAxis = Input.GetAxis("Vertical");
 
         if (GrabbingLedge)
         {
@@ -397,36 +454,45 @@ public class PlayerScript : MonoBehaviour
             Running = false;
         }
 
-        if (Dashing)
+        if (iFramesOn)
         {
-            Dashing = TimerTick(dashTime);
-            if (!Dashing)
+            Dashing = false;
+            RunIFrames();
+        }
+        else
+        {
+            if (Dashing)
             {
+                Dashing = TimerTick(dashTime);
+                if (!Dashing)
+                {
+                    CanDash = false;
+                    PostDash = true;
+                    Dashing = false;
+                }
+            }
+            else if (PostDash)
+            {
+                PostDash = TimerTick(PostDashTime);
                 CanDash = false;
-                PostDash = true;
-                Dashing = false;
             }
-        }
-        else if (PostDash)
-        {
-            PostDash = TimerTick(PostDashTime);
-            CanDash = false;
-        }
-        else if (Input.GetButtonDown("Dash") && CanDash)
-        {
-            if (Jumping)
+            else if (Input.GetButtonDown("Dash") && CanDash)
             {
-                
-            }
-            else if (Falling)
-            {
+                if (Jumping)
+                {
 
-            }
-            else if (HasUnlockedDashing)
-            {
-                Dash();
+                }
+                else if (Falling)
+                {
+
+                }
+                else if (HasUnlockedDashing)
+                {
+                    Dash();
+                }
             }
         }
+        
 
         if (Input.GetButton("Grab") && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping)
         {
@@ -743,16 +809,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    void DropObject()
+    GameObject DropObject()
     {
         if (objInHands != null)
         {
+            GameObject droppedObj;
             objInHands.GetComponent<Rigidbody2D>().simulated = true;
             objInHands.layer = 0;
             objInHands.transform.parent = null;
             Vector2 newPos = objInHands.transform.position;
             newPos.x += 1 * Direction;
             objInHands.transform.position = newPos;
+            droppedObj = objInHands;
             objInHands = null;
             itemInHands = null;
             HoldingObj = false;
@@ -760,7 +828,9 @@ public class PlayerScript : MonoBehaviour
             Vector2 newRot = hands.transform.eulerAngles;
             newRot.y = 0;
             hands.transform.eulerAngles = newRot;
+            return droppedObj;
         }
+        return null;
     }
 
     void GrabLedge()
@@ -789,6 +859,47 @@ public class PlayerScript : MonoBehaviour
         rb.simulated = true;
         GrabbingLedge = false;
         anim.LedgeGrabbing();
+    }
+
+    void UseUtility()
+    {
+        UsingUtility = true;
+        if (itemInHands)
+        {
+            if (itemInHands.type == Item.Type.PROJECTILE || itemInHands.type == Item.Type.GUN)
+            {
+                crosshair.SetActive(true);
+                Aiming = true;
+                crosshair.transform.localPosition = new Vector2(horLAxis, vertLAxis);
+            }
+        }
+    }
+
+    void StopUsingUtility()
+    {
+        if (UsingUtility)
+        {
+            if (itemInHands)
+            {
+                if (itemInHands.type == Item.Type.PROJECTILE || itemInHands.type == Item.Type.GUN)
+                {
+                    if (itemInHands.type == Item.Type.PROJECTILE)
+                    {
+                        GameObject droppedobj = DropObject();
+                        droppedobj.gameObject.GetComponent<Rigidbody2D>().AddForce(crosshair.transform.localPosition * strength * 5, ForceMode2D.Impulse);
+                        CanGrabOrDrop = false;
+                    }
+                    crosshair.SetActive(false);
+                    Aiming = false;
+                }
+            }
+
+            if (!CanGrabOrDrop)
+            {
+                CanGrabOrDrop = !TimerTick(.5f);
+            }
+            UsingUtility = false;
+        }
     }
 
     bool IsGrounded()

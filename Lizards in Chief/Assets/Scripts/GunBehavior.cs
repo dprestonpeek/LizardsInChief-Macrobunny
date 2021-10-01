@@ -32,7 +32,7 @@ public class GunBehavior : MonoBehaviour
     {
     }
 
-    public void Shoot(int direction)
+    public void Shoot(Vector2 direction)
     {
         if (!waitToFire)
         {
@@ -43,7 +43,7 @@ public class GunBehavior : MonoBehaviour
             }
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
             BlasterBullet behavior = bullet.GetComponent<BlasterBullet>();
-            bullet.GetComponent<Rigidbody2D>().AddForce(bulletSpawn.right * bulletSpeed * 10, ForceMode2D.Impulse);
+            bullet.GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed * 10, ForceMode2D.Impulse);
             behavior.SetRicochetCount(bulletRicochets);
             behavior.SetSourceWeapon(gameObject);
             waitToFire = true;
@@ -51,7 +51,7 @@ public class GunBehavior : MonoBehaviour
         }
     }
 
-    private void ShootMultiple(int direction)
+    private void ShootMultiple(Vector2 direction)
     {
         for (int i = 0; i < numberBullets; i++)
         {

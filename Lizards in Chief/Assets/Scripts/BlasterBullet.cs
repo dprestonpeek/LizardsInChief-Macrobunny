@@ -9,6 +9,10 @@ public class BlasterBullet : MonoBehaviour
     GameObject sourceWeapon = null;
     Rigidbody2D rb = null;
 
+    [SerializeField]
+    [Range(0, 100)]
+    int damage = 10;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +38,27 @@ public class BlasterBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<PlayerScript>().DecreaseHeath(damage);
             Destroy(gameObject);
-            //Award points
+        }
+        if (other.gameObject.CompareTag("Entity"))
+        {
+            try
+            {
+                EntitySimple entity = other.gameObject.GetComponent<EntitySimple>();
+                entity.TakeDamage(damage);
+            }
+            catch
+            {
+                try
+                {
+                    //EntityComplex entity = other.gameObject.GetComponent<EntityComplex>();
+                }
+                catch
+                {
+
+                }
+            }
         }
         if (!other.gameObject.Equals(sourceWeapon) && !other.gameObject.CompareTag("Bullet"))
         {

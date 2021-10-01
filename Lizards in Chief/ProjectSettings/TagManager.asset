@@ -11,6 +11,7 @@ TagManager:
   - Weapon
   - Menu
   - Bullet
+  - Entity
   layers:
   - Default
   - TransparentFX

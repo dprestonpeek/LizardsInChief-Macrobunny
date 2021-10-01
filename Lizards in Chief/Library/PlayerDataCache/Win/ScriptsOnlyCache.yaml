@@ -310,7 +310,7 @@ ScriptsOnlyBuild:
     className: TMP_InputField
   - hash:
       serializedVersion: 2
-      Hash: 9dd8d44d9f02978d35db6f874c2819c4
+      Hash: f3b30ebfc2d39bdc2c37556e8fa301f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerScript
@@ -454,7 +454,7 @@ ScriptsOnlyBuild:
     className: GameMenuController
   - hash:
       serializedVersion: 2
-      Hash: b27107cd29371f7a45fd1ce7906b2ee5
+      Hash: a53555fb3afd1ec0270f1bca3e731347
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AbilitiesMenuController

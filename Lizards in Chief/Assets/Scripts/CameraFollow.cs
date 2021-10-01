@@ -7,6 +7,7 @@ public class CameraFollow : MonoBehaviour
     PlayerScript player;
     [SerializeField]
     float heightLimit = 4;
+
     // Start is called before the first frame update
     void Start()
     {
