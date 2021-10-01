@@ -95,6 +95,7 @@ public class GameMenuController : MonoBehaviour
 
     public void GoToMainMenu()
     {
+        Time.timeScale = 1;
         SceneHelper.LoadSingleScene(SceneHelper.Scenes.MainMenu);
     }
 
