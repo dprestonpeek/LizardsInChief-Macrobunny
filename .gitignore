@@ -65,6 +65,6 @@ crashlytics-build.properties
 
 Assets/HoudiniEngineAssetCache/Working/
 heu_session.txt
-Library/**
-Temp/**
-Build/**
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uilds/
