@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -123,6 +124,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameMenuController gameMenu;
 
+    Gamepad gamepad;
+
     private float timer = 0.0f;
     private int globalSeconds = 0;
     public int frameTimer = 0;
@@ -130,6 +133,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gamepad = Gamepad.current;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<ProtagAnimator>();
         inventory = GetComponentInChildren<PlayerInventory>();
@@ -146,8 +150,7 @@ public class PlayerScript : MonoBehaviour
 
         #region Inventory
 
-
-        if (Input.GetButton("Grab"))
+        if (gamepad.rightShoulder.isPressed)
         {
             if (CanGrabOrDrop)
             {
@@ -170,8 +173,8 @@ public class PlayerScript : MonoBehaviour
 
         anim.Holding();
 
-        rightJoystickHor = Input.GetAxis("InventoryHor");
-        rightJoystickVert = Input.GetAxis("InventoryVert");
+        rightJoystickHor = gamepad.rightStick.ReadValue().x;//Input.GetAxis("InventoryHor");
+        rightJoystickVert = gamepad.rightStick.ReadValue().y;//Input.GetAxis("InventoryVert");
 
         if (inventory.ShowInventory(rightJoystickHor, rightJoystickVert))
         {
@@ -219,9 +222,10 @@ public class PlayerScript : MonoBehaviour
         #endregion
 
         #region Weapons
+        //Fire
         if (gunInHands)
         {
-            if (Input.GetAxis("Fire1") == 1)
+            if (gamepad.rightTrigger.ReadValue() == 1)//Input.GetAxis("Fire1") == 1)
             {
                 gunInHands.Shoot(Direction);
             }
@@ -236,13 +240,10 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         #region Pause
-        if (Input.GetButtonDown("Pause"))
-        {
-            if (Time.timeScale == 1)
-                gameMenu.Toggle(true);
-            else
-                gameMenu.Toggle(false);
-        }
+        if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 1)
+            gameMenu.Toggle(true);
+        else if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 0)
+            gameMenu.Toggle(false);
         #endregion
     }
 
@@ -290,7 +291,7 @@ public class PlayerScript : MonoBehaviour
             anim.Grounded();
         }
 
-        horLAxis = Input.GetAxis("Horizontal");
+        horLAxis = gamepad.leftStick.ReadValue().x;//Input.GetAxis("Horizontal");
 
         if (GrabbingLedge)
         {
@@ -364,7 +365,8 @@ public class PlayerScript : MonoBehaviour
 
         xVelocity = rb.velocity.x;
 
-        if (Input.GetButton("Jump"))
+        //Jump
+        if (gamepad.crossButton.isPressed || gamepad.circleButton.isPressed) //Input.GetButton("Jump"))
         {
             if (CanJump)
             {
@@ -456,6 +458,7 @@ public class PlayerScript : MonoBehaviour
             Running = false;
         }
 
+        //Dash
         if (Dashing)
         {
             Dashing = TimerTick(dashTime);
@@ -471,7 +474,7 @@ public class PlayerScript : MonoBehaviour
             PostDash = TimerTick(PostDashTime);
             CanDash = false;
         }
-        else if (Input.GetButtonDown("Dash") && CanDash)
+        else if (gamepad.leftShoulder.isPressed && CanDash) //Input.GetButtonDown("Dash") 
         {
             if (Jumping)
             {
@@ -487,7 +490,8 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        if (Input.GetButton("Grab") && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping)
+        //Grab Ledge
+        if (gamepad.rightShoulder.isPressed && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping) //Input.GetButton("Grab")
         {
             GrabLedge();
         }
@@ -583,7 +587,6 @@ public class PlayerScript : MonoBehaviour
     void FloatFall()
     {
         rb.AddForce(Vector2.up * 2 * floatyFall);
-        string[] names = Input.GetJoystickNames();
     }
 
     void ForceFall()

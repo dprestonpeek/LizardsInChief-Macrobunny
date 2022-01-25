@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2225477015496944168}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6840995505561356448}
   - component: {fileID: 7586030233259756658}
   - component: {fileID: 1845958334806446308}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: squirtgun 1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1952418787333825678}
   - component: {fileID: 2069669857286314869}
   - component: {fileID: 371492177079466245}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shotgun
   m_TagString: Object
   m_Icon: {fileID: 0}
