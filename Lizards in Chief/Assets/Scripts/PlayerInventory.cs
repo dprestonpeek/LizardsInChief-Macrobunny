@@ -51,7 +51,7 @@ public class PlayerInventory : MonoBehaviour
         }
         inventoryCircle.transform.localScale = Vector3.one * amount;
 
-        if (amount > 0)
+        if (amount > .75f)
         {
             selectedSlot = PointToItem(x, y);
             return true;
@@ -154,7 +154,7 @@ public class PlayerInventory : MonoBehaviour
                     return HoverItem(4);     
                 if (amount != InventoryItems.SIX)
                 {
-                    if (y <= -.75f)          //(-1,-1)
+                    if (y <= -.65f)          //(-1,-1)
                         return HoverItem(6);     
                 }
             }
@@ -164,7 +164,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (y >= .75f)               //(0,1)
                 return HoverItem(1);
-            if (y <= -.75f)              //(0,-1)
+            if (y <= -.65f)              //(0,-1)
                 return HoverItem(3);
         }
         return selectedSlot;

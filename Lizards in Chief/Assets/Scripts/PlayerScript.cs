@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_PS4
+using UnityEngine.PS4;
+#endif
 
 public class PlayerScript : MonoBehaviour
 {
@@ -124,7 +127,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameMenuController gameMenu;
 
-    Gamepad gamepad;
+    InputBridge inputManager;
 
     private float timer = 0.0f;
     private int globalSeconds = 0;
@@ -133,7 +136,7 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gamepad = Gamepad.current;
+        inputManager = GetComponent<InputBridge>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<ProtagAnimator>();
         inventory = GetComponentInChildren<PlayerInventory>();
@@ -148,9 +151,9 @@ public class PlayerScript : MonoBehaviour
     {
         DoMovement();
 
-        #region Inventory
+#region Inventory
 
-        if (gamepad.rightShoulder.isPressed)
+        if (GameInput.rShoulder)
         {
             if (CanGrabOrDrop)
             {
@@ -173,8 +176,8 @@ public class PlayerScript : MonoBehaviour
 
         anim.Holding();
 
-        rightJoystickHor = gamepad.rightStick.ReadValue().x;//Input.GetAxis("InventoryHor");
-        rightJoystickVert = gamepad.rightStick.ReadValue().y;//Input.GetAxis("InventoryVert");
+        rightJoystickHor = GameInput.rJoystick.x;//Input.GetAxis("InventoryHor");
+        rightJoystickVert = GameInput.rJoystick.y;//Input.GetAxis("InventoryVert");
 
         if (inventory.ShowInventory(rightJoystickHor, rightJoystickVert))
         {
@@ -219,35 +222,29 @@ public class PlayerScript : MonoBehaviour
                 EquippingItem = false;
             }
         }
-        #endregion
+#endregion
 
-        #region Weapons
+#region Weapons
         //Fire
         if (gunInHands)
         {
-            if (gamepad.rightTrigger.ReadValue() == 1)//Input.GetAxis("Fire1") == 1)
+            if (GameInput.rTrigger == 1)//Input.GetAxis("Fire1") == 1)
             {
                 gunInHands.Shoot(Direction);
             }
         }
-        #endregion
+#endregion
 
-        #region Visuals
+#region Visuals
         HoldObjectInHands();
-        #endregion
+#endregion
     }
 
     private void Update()
     {
-        #region Pause
-        if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 1)
-            gameMenu.Toggle(true);
-        else if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 0)
-            gameMenu.Toggle(false);
-        #endregion
     }
 
-    #region Abilities
+#region Abilities
     private void LoadAbilities()
     {
         HasUnlockedFloatFall = IntToBool(PlayerPrefs.GetInt("floatfall", 0));
@@ -270,7 +267,7 @@ public class PlayerScript : MonoBehaviour
         else 
             return true;
     }
-    #endregion
+#endregion
     void DoMovement()
     {
         if (IsGrounded())
@@ -291,7 +288,7 @@ public class PlayerScript : MonoBehaviour
             anim.Grounded();
         }
 
-        horLAxis = gamepad.leftStick.ReadValue().x;//Input.GetAxis("Horizontal");
+        horLAxis = GameInput.lJoystick.x;//Input.GetAxis("Horizontal");
 
         if (GrabbingLedge)
         {
@@ -366,7 +363,7 @@ public class PlayerScript : MonoBehaviour
         xVelocity = rb.velocity.x;
 
         //Jump
-        if (gamepad.crossButton.isPressed || gamepad.circleButton.isPressed) //Input.GetButton("Jump"))
+        if (GameInput.cross || GameInput.circle) //Input.GetButton("Jump"))
         {
             if (CanJump)
             {
@@ -474,7 +471,7 @@ public class PlayerScript : MonoBehaviour
             PostDash = TimerTick(PostDashTime);
             CanDash = false;
         }
-        else if (gamepad.leftShoulder.isPressed && CanDash) //Input.GetButtonDown("Dash") 
+        else if (GameInput.lShoulder && CanDash) //Input.GetButtonDown("Dash") 
         {
             if (Jumping)
             {
@@ -491,7 +488,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //Grab Ledge
-        if (gamepad.rightShoulder.isPressed && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping) //Input.GetButton("Grab")
+        if (GameInput.rShoulder && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping) //Input.GetButton("Grab")
         {
             GrabLedge();
         }

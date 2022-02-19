@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: 2a8e76f633a311a4b885b929c1ad3e3a
   - enabled: 1
     path: Assets/Scenes/Playground.unity
     guid: 9fd67757173611742acc08cbec9bc61f
+  - enabled: 0
+    path: Assets/SonyExamples/PS4/Input+/PS4Input+.unity
+    guid: f81188945041a4d49ae52bee2e900cdb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0101332ce1fd20644aa83a5da25414c6,
       type: 2}

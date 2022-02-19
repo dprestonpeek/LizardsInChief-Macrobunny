@@ -92,21 +92,21 @@ public class ProtagAnimator : MonoBehaviour
 
     public void LookingBack()
     {
-        if (player.HoldingObj && player.LookBack)
-        {
-            anim.SetBool("LookingBackHold", true);
-            anim.SetBool("LookingBack", false);
-        }
-        else if (player.LookBack)
-        {
-            anim.SetBool("LookingBack", true);
-            anim.SetBool("LookingBackHold", false);
-        }
-        else
-        {
-            anim.SetBool("LookingBack", false);
-            anim.SetBool("LookingBackHold", false);
-        }
+        //if (player.HoldingObj && player.LookBack)
+        //{
+        //    anim.SetBool("LookingBackHold", true);
+        //    anim.SetBool("LookingBack", false);
+        //}
+        //else if (player.LookBack)
+        //{
+        //    anim.SetBool("LookingBack", true);
+        //    anim.SetBool("LookingBackHold", false);
+        //}
+        //else
+        //{
+        //    anim.SetBool("LookingBack", false);
+        //    anim.SetBool("LookingBackHold", false);
+        //}
     }
 
     public void Grounded()
