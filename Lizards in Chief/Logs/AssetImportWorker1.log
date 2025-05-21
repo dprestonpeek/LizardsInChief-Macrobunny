@@ -1,0 +1,1897 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.62f1 (4af31df58517) revision 4911901'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit Core' Language: 'en' Physical Memory: 16283 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker1
+-projectPath
+E:/Preston/MacroBunny/LizardsInChief-Macrobunny/Lizards in Chief
+-logFile
+Logs/AssetImportWorker1.log
+-srvPort
+63435
+Successfully changed project path to: E:/Preston/MacroBunny/LizardsInChief-Macrobunny/Lizards in Chief
+E:/Preston/MacroBunny/LizardsInChief-Macrobunny/Lizards in Chief
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [5084]  Target information:
+
+Player connection [5084]  * "[IP] 192.168.184.1 [Port] 0 [Flags] 2 [Guid] 251435723 [EditorId] 251435723 [Version] 1048832 [Id] WindowsEditor(7,PrestonsRazer) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [5084]  * "[IP] 192.168.179.1 [Port] 0 [Flags] 2 [Guid] 251435723 [EditorId] 251435723 [Version] 1048832 [Id] WindowsEditor(7,PrestonsRazer) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [5084]  * "[IP] 10.0.0.241 [Port] 0 [Flags] 2 [Guid] 251435723 [EditorId] 251435723 [Version] 1048832 [Id] WindowsEditor(7,PrestonsRazer) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [5084] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [5084] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+Refreshing native plugins compatible for Editor in 10.48 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.62f1 (4af31df58517)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/Preston/MacroBunny/LizardsInChief-Macrobunny/Lizards in Chief/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2182)
+    Vendor:   NVIDIA
+    VRAM:     5966 MB
+    Driver:   32.0.15.6094
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56744
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.62f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.029741 seconds.
+- Loaded All Assemblies, in  1.284 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.905 seconds
+Domain Reload Profiling: 2181ms
+	BeginReloadAssembly (349ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (122ms)
+	RebuildNativeTypeToScriptingClass (109ms)
+	initialDomainReloadingComplete (195ms)
+	LoadAllAssembliesAndSetupDomain (499ms)
+		LoadAssemblies (342ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (494ms)
+			TypeCache.Refresh (488ms)
+				TypeCache.ScanAssembly (428ms)
+			ScanForSourceGeneratedMonoScriptInfo (4ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (906ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (761ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (13ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (6ms)
+			ProcessInitializeOnLoadAttributes (544ms)
+			ProcessInitializeOnLoadMethodAttributes (167ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.094 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.264 seconds
+Domain Reload Profiling: 2353ms
+	BeginReloadAssembly (313ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (77ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (86ms)
+	LoadAllAssembliesAndSetupDomain (589ms)
+		LoadAssemblies (530ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (246ms)
+			TypeCache.Refresh (218ms)
+				TypeCache.ScanAssembly (195ms)
+			ScanForSourceGeneratedMonoScriptInfo (23ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1265ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1006ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (101ms)
+			ProcessInitializeOnLoadAttributes (796ms)
+			ProcessInitializeOnLoadMethodAttributes (73ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
+Refreshing native plugins compatible for Editor in 2.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2000 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (52.1 KB). Loaded Objects now: 2476.
+Memory consumption went from 94.4 MB to 94.3 MB.
+Total: 6.690600 ms (FindLiveObjects: 0.496200 ms CreateObjectMapping: 0.220700 ms MarkObjects: 5.753500 ms  DeleteObjects: 0.218900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+========================================================================
+Received Import Request.
+  Time since last request: 50913.053943 seconds.
+  path: Assets/Fonts/big-fight-big-trouble-in-the-atlantic-ocean.ttf
+  artifactKey: Guid(f83e7c949c1af9a418fb05b037597ef9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Fonts/big-fight-big-trouble-in-the-atlantic-ocean.ttf using Guid(f83e7c949c1af9a418fb05b037597ef9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '1d1a2b58091adb372e3e0581ee47c039') in 0.385812 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Scripts/BlasterBullet.cs
+  artifactKey: Guid(58ce9b33fd365fa4c945629c73fb37d3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/BlasterBullet.cs using Guid(58ce9b33fd365fa4c945629c73fb37d3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '925de82ecf34b3d7aa5e7abedc2939d3') in 0.093397 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Scripts/SelectColor.cs
+  artifactKey: Guid(15c1ce5f066e6e34da6fb7d43cbf466a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/SelectColor.cs using Guid(15c1ce5f066e6e34da6fb7d43cbf466a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '24797095fa4dc138d844efc3ee879922') in 0.164199 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sounds/Shotgun_Shoot.wav
+  artifactKey: Guid(f34949e5773d944419cedace2bff3dd3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sounds/Shotgun_Shoot.wav using Guid(f34949e5773d944419cedace2bff3dd3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '75b540edf218d3beb435b3a0cd869980') in 0.195874 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000097 seconds.
+  path: Assets/Materials/Colors/DarkColors/DarkYellow.mat
+  artifactKey: Guid(4aadbc9e0e558ae4daabedf4e1355ff2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/DarkColors/DarkYellow.mat using Guid(4aadbc9e0e558ae4daabedf4e1355ff2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ce725d7938b7b681701664da012c6322') in 0.194732 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Materials/Colors/DarkColors/DarkBlue.mat
+  artifactKey: Guid(2e6330261a81ab346916c08122e349cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/DarkColors/DarkBlue.mat using Guid(2e6330261a81ab346916c08122e349cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'c59365d55f060c406204e2b2dc3de45f') in 0.168615 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Fonts/zupra-3d-eye-fs.ttf
+  artifactKey: Guid(1a86be88b90fd764abd46470f880c4be) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Fonts/zupra-3d-eye-fs.ttf using Guid(1a86be88b90fd764abd46470f880c4be) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '4834108b614954ab312d1c24d2f4a1a6') in 0.208689 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Prefabs/Objects/Guns/Bullets/BlasterBullet.prefab
+  artifactKey: Guid(4c2a4e3b4ae9cdf45b6937f7886c8b55) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Guns/Bullets/BlasterBullet.prefab using Guid(4c2a4e3b4ae9cdf45b6937f7886c8b55) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '1589482732a4ec92708565d0acfa0ff4') in 0.197151 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedLookBack.anim
+  artifactKey: Guid(1b65844180cd454459a8c1040324507c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedLookBack.anim using Guid(1b65844180cd454459a8c1040324507c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'daeeb4662d638db9693bb0485eef3486') in 0.224438 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Materials/Colors/DarkColors/DarkOrange.mat
+  artifactKey: Guid(146caba9bf2476844bed604e8590e7a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/DarkColors/DarkOrange.mat using Guid(146caba9bf2476844bed604e8590e7a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '449032bb6c8a6681d8d54a55e13d4f06') in 0.268180 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredstand.png
+  artifactKey: Guid(caf826074bc976846a6a1462b4bfa9ed) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredstand.png using Guid(caf826074bc976846a6a1462b4bfa9ed) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'a0d0fd890cd01f70e81ca5bb0e7aa553') in 0.188753 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdfall.png
+  artifactKey: Guid(1b19dde93e4bedd42a3ea2d66425cdc8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredholdfall.png using Guid(1b19dde93e4bedd42a3ea2d66425cdc8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ddfbc53ded0b829101a61cc2110fd085') in 0.185533 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedPrefab 1.prefab
+  artifactKey: Guid(f46b71e0fb254e44b9b0a90df2a898b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedPrefab 1.prefab using Guid(f46b71e0fb254e44b9b0a90df2a898b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '13d3831fc9d1bfd8fe3507ab187a911b') in 0.281652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 446
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Scripts/PlayerInventory.cs
+  artifactKey: Guid(1d6af884dcbc69946b3e12dfd1da4208) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/PlayerInventory.cs using Guid(1d6af884dcbc69946b3e12dfd1da4208) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'd856dc837ded087c66c2d99dd7204660') in 0.167986 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredstandhold.png
+  artifactKey: Guid(123647b3d917c1341acdf0950e802097) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredstandhold.png using Guid(123647b3d917c1341acdf0950e802097) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ffecbdd75e921871cf403885990643e4') in 0.173010 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/Objects/Guns/Shotgun/Shotgun.prefab
+  artifactKey: Guid(8ef351dbda661d7449f1f64611e3ebad) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Guns/Shotgun/Shotgun.prefab using Guid(8ef351dbda661d7449f1f64611e3ebad) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '8e0402f91f246e916370b7625fee80e9') in 0.189646 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdwalk2.png
+  artifactKey: Guid(f6e21bf02cb83ca439161a45ca927799) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredholdwalk2.png using Guid(f6e21bf02cb83ca439161a45ca927799) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '41fbdfa9dd14c6d994d0e184e1987f67') in 0.339759 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Materials/Colors/BlasterBullet.mat
+  artifactKey: Guid(05fd265826f98ab40b4870ebe1f2ed03) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/BlasterBullet.mat using Guid(05fd265826f98ab40b4870ebe1f2ed03) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'feac98825acac92e2b5a8b52f763b10e') in 0.172859 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedLookBackHold.anim
+  artifactKey: Guid(e7892f177e676ac4bab603793dbf88fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedLookBackHold.anim using Guid(e7892f177e676ac4bab603793dbf88fa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '89b3de7529740979aa8896c4c344275f') in 0.168393 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Materials/Colors/Tree.mat
+  artifactKey: Guid(64b54045ff4f2664b86c5b006cd5eddb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Tree.mat using Guid(64b54045ff4f2664b86c5b006cd5eddb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'aea6612c3eeaaa3653f50f783b06ee56') in 0.212702 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Materials/Colors/Red.mat
+  artifactKey: Guid(dd39d0dfa662a5c45b5ac42bc1d54b80) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Red.mat using Guid(dd39d0dfa662a5c45b5ac42bc1d54b80) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'af21bdbe2949454098fa5123e2c7f422') in 0.229889 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedJump.anim
+  artifactKey: Guid(718327dde01d7c64b9809f1844bf6434) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedJump.anim using Guid(718327dde01d7c64b9809f1844bf6434) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '57c6d999b99b8ef90c9abfd5adaab3f4') in 0.141981 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Materials/Physics/Apple.physicsMaterial2D
+  artifactKey: Guid(bf377ff734cae4b4db5f76958d541c07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Physics/Apple.physicsMaterial2D using Guid(bf377ff734cae4b4db5f76958d541c07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '859fd7d620b7a3df45048c60fa009539') in 0.205834 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedFallHold.anim
+  artifactKey: Guid(ae9c92fac6b94424cbff77d1ace9f47f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedFallHold.anim using Guid(ae9c92fac6b94424cbff77d1ace9f47f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'de65ec04f001cf237e0d621a4064babb') in 0.206491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedStandHold.anim
+  artifactKey: Guid(c584f71d712465b4b84b580d87ffd4fe) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedStandHold.anim using Guid(c584f71d712465b4b84b580d87ffd4fe) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '94953f98dfd685ec8ccbc03b07fbb380') in 0.261379 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/Objects/Guns/Shotgun/shotgun.png
+  artifactKey: Guid(430fed089b8c5c54397695d13a68551a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Guns/Shotgun/shotgun.png using Guid(430fed089b8c5c54397695d13a68551a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '02d88e54abbf30e03d418b854d68c830') in 0.267694 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Materials/Colors/Lizard.mat
+  artifactKey: Guid(fde67078b88080948833f9454f400559) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Lizard.mat using Guid(fde67078b88080948833f9454f400559) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '37474b3b32f4ecd19a6032aec18689b7') in 0.210215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Scripts/AbilitiesMenuController.cs
+  artifactKey: Guid(aa6bf346cbd623f48945c96c1fa9bf0a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/AbilitiesMenuController.cs using Guid(aa6bf346cbd623f48945c96c1fa9bf0a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '8c8369f4ee3f291ff9582e4c3c21def9') in 0.228331 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredwalk1.png
+  artifactKey: Guid(016a17e6cc33beb438cd84d2b635a015) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredwalk1.png using Guid(016a17e6cc33beb438cd84d2b635a015) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'e56066122b6e44e2c906958d9fc124aa') in 0.218205 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedStand.anim
+  artifactKey: Guid(e426aeb7773a33446a3fdc905eeb02f1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedStand.anim using Guid(e426aeb7773a33446a3fdc905eeb02f1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '5f547496db543559fe00bf7202fd5b9d') in 0.252835 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/Inventory/Inventory.prefab
+  artifactKey: Guid(c24d40f43b2994949a6a020fbf21f125) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Inventory/Inventory.prefab using Guid(c24d40f43b2994949a6a020fbf21f125) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '6cdd7388b6faa8bd7a37714939a60444') in 0.144024 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 48
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Objects/Livery/Apple.prefab
+  artifactKey: Guid(fb709d0a7e3b4784cb39be1d44ed172b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Livery/Apple.prefab using Guid(fb709d0a7e3b4784cb39be1d44ed172b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '9dd28e37caa92041f12ed103575d1217') in 0.108003 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/ProtagRed/icon.png
+  artifactKey: Guid(4c559ab6e73e68a48a345b71f34434cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/icon.png using Guid(4c559ab6e73e68a48a345b71f34434cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '4b2294c4aebb79b71023d177bf5b734b') in 0.258250 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Prefabs/ProtagRed/ProtagRedWalk.anim
+  artifactKey: Guid(a847e6589abccc64ba62c93e28653523) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/ProtagRedWalk.anim using Guid(a847e6589abccc64ba62c93e28653523) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'cfeb8d79b18092f5e71d9100dec647cc') in 0.207989 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Materials/Colors/DarkColors/DarkPurple.mat
+  artifactKey: Guid(f9a144191278ff345a2ea239c42f1266) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/DarkColors/DarkPurple.mat using Guid(f9a144191278ff345a2ea239c42f1266) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '92a2b9172d5c7f2d01b8bd96067758fa') in 0.136050 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Scripts/GameMenuController.cs
+  artifactKey: Guid(40e885067c6426f4fb74fd5808bc85e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Scripts/GameMenuController.cs using Guid(40e885067c6426f4fb74fd5808bc85e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '1b9ad86a2de5936e64075379e045f519') in 0.240548 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Materials/Colors/Inventory.mat
+  artifactKey: Guid(89bb8f2f68f2a62409903a727a94496c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Inventory.mat using Guid(89bb8f2f68f2a62409903a727a94496c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '0d3e418dfc409098be734c461269df31') in 0.194079 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Prefabs/Player/StretchTail.prefab
+  artifactKey: Guid(7cfc8b7e2463b42409ec74f90a3ac2d0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Player/StretchTail.prefab using Guid(7cfc8b7e2463b42409ec74f90a3ac2d0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '8fcbd0026eecef1f7af276de3a03d0e7') in 0.198650 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Sounds/Laser_Shoot.wav.reapeaks
+  artifactKey: Guid(08719afd0afbdf344b12d5aeeab4d19e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sounds/Laser_Shoot.wav.reapeaks using Guid(08719afd0afbdf344b12d5aeeab4d19e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '1a22474656417705ef38f07dfa3e77c5') in 0.177772 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Player/tailclawclose.png
+  artifactKey: Guid(2798466e45427ae408c0df93e3199e67) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Player/tailclawclose.png using Guid(2798466e45427ae408c0df93e3199e67) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '780dac08f07ccdcf4c8f8f1cc00f522f') in 0.238665 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Materials/Physics/Protag.physicsMaterial2D
+  artifactKey: Guid(009c7d292bdf4004785135365d70e596) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Physics/Protag.physicsMaterial2D using Guid(009c7d292bdf4004785135365d70e596) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '489c2ecefc0a751f771e8ae46c239e5f') in 0.187242 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Objects/Guns/ProtagBlaster/ProtagBlaster.prefab
+  artifactKey: Guid(94318cc7bb58b9e4c8e1629afeed01cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Guns/ProtagBlaster/ProtagBlaster.prefab using Guid(94318cc7bb58b9e4c8e1629afeed01cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'b070d9de4e2bf9c4689ad87c0196370f') in 0.143488 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 19
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/Environment/Floor 10.prefab
+  artifactKey: Guid(8b55f18720931bb46988c0f83254ce93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Environment/Floor 10.prefab using Guid(8b55f18720931bb46988c0f83254ce93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '9ffda77acf5e3f9cfdc3f1bd13f37337') in 0.149049 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredwalk2.png
+  artifactKey: Guid(30531e2233f8c774ea068b5a9e127cd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredwalk2.png using Guid(30531e2233f8c774ea068b5a9e127cd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '6c49a758b9e09c524aeacc2a4a5e2725') in 0.207120 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun.png
+  artifactKey: Guid(f86ef6ca195151c4ea4b4cac2c983647) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun.png using Guid(f86ef6ca195151c4ea4b4cac2c983647) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '985a69fe3dbf89f6bc97cd4763d478a7') in 0.184376 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredjump.png
+  artifactKey: Guid(55fc7a1a0465aaf4896df008f84d5a24) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredjump.png using Guid(55fc7a1a0465aaf4896df008f84d5a24) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'f1a24e60b2c9d8ccd0dac522d225d29e') in 0.217440 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Prefabs/ProtagRed/icon.png
+  artifactKey: Guid(4c559ab6e73e68a48a345b71f34434cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/icon.png using Guid(4c559ab6e73e68a48a345b71f34434cb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'eeb499fb652e98ff1991cb47af5c007e') in 0.305878 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Materials/Colors/Ground.mat
+  artifactKey: Guid(2e4aec9cda640c94eb61faf45e50d988) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Ground.mat using Guid(2e4aec9cda640c94eb61faf45e50d988) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'fd6ff1179ab61ed1e31d5e44a08e4b77') in 0.268827 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Prefabs/Environment/TreeFloor.prefab
+  artifactKey: Guid(b560aa2d218ff744287b77b828984dcb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Environment/TreeFloor.prefab using Guid(b560aa2d218ff744287b77b828984dcb) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '916a3c5a7d24deb9ef2e84879fa29ef3') in 0.135544 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 15
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Materials/Colors/Yellow.mat
+  artifactKey: Guid(ee5ed6bc37b0eb841b8d9a21a85fa658) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Yellow.mat using Guid(ee5ed6bc37b0eb841b8d9a21a85fa658) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '5e8231b578208cdfd3878d7a8b565d9b') in 0.303713 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredfall.png
+  artifactKey: Guid(55ba1efaf5a5f3342b6dbc181d87a522) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredfall.png using Guid(55ba1efaf5a5f3342b6dbc181d87a522) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'bf3923719cbba1b26bfdfe6dd1fb0879') in 0.202458 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000062 seconds.
+  path: Assets/Materials/Colors/Blue.mat
+  artifactKey: Guid(8a0df2aef4bc2c24c8d4f93a46d24667) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Materials/Colors/Blue.mat using Guid(8a0df2aef4bc2c24c8d4f93a46d24667) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '8ab27bab54f26121f8b3cb646494a989') in 0.176610 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdjump.png
+  artifactKey: Guid(3ca3488f76485c94da38852e5067a601) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredholdjump.png using Guid(3ca3488f76485c94da38852e5067a601) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'df371fac6d20fa38c87b03979974ec6d') in 0.126380 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Prefabs/Menus/pointer.png
+  artifactKey: Guid(82a97229a41bcfb4f9956fe6d00e896d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/Menus/pointer.png using Guid(82a97229a41bcfb4f9956fe6d00e896d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '432bc986e599f5864ac5bbfa40cedb5a') in 0.358300 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Sounds/Jump.wav
+  artifactKey: Guid(0c2460cb0b9f8ec448613b3b76d01a7e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Sounds/Jump.wav using Guid(0c2460cb0b9f8ec448613b3b76d01a7e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '29256812b45f9657a71819a9ad140c7f') in 0.482200 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredlookbag.png
+  artifactKey: Guid(7ae4ab9aadb1c9f46a66b8c98fc32778) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Prefabs/ProtagRed/protagredlookbag.png using Guid(7ae4ab9aadb1c9f46a66b8c98fc32778) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'f5f084b83b1817e0af3a101ae7cc20e0') in 0.383555 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 44.225 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 45.836 seconds
+Domain Reload Profiling: 90059ms
+	BeginReloadAssembly (43703ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (54ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (401ms)
+		LoadAssemblies (496ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (36ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (1ms)
+			ScanForSourceGeneratedMonoScriptInfo (20ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (45837ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (583ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (78ms)
+			ProcessInitializeOnLoadAttributes (442ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 2.12 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 14 unused Assets / (29.1 KB). Loaded Objects now: 2490.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 5.185600 ms (FindLiveObjects: 0.245900 ms CreateObjectMapping: 0.093800 ms MarkObjects: 4.686300 ms  DeleteObjects: 0.158400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.570 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.972 seconds
+Domain Reload Profiling: 1541ms
+	BeginReloadAssembly (311ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (172ms)
+		LoadAssemblies (253ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (11ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (973ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (628ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (73ms)
+			ProcessInitializeOnLoadAttributes (493ms)
+			ProcessInitializeOnLoadMethodAttributes (37ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 1.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2493.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 3.445500 ms (FindLiveObjects: 0.192300 ms CreateObjectMapping: 0.115200 ms MarkObjects: 3.102800 ms  DeleteObjects: 0.034200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.687 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.253 seconds
+Domain Reload Profiling: 1940ms
+	BeginReloadAssembly (360ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (21ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (209ms)
+		LoadAssemblies (314ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (1255ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (768ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (12ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (98ms)
+			ProcessInitializeOnLoadAttributes (597ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 2.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.1 KB). Loaded Objects now: 2496.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 6.502100 ms (FindLiveObjects: 0.314700 ms CreateObjectMapping: 0.187100 ms MarkObjects: 5.941300 ms  DeleteObjects: 0.057700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 25.231 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 28.111 seconds
+Domain Reload Profiling: 53338ms
+	BeginReloadAssembly (24435ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (31ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (7ms)
+		CreateAndSetChildDomain (114ms)
+	RebuildCommonClasses (86ms)
+	RebuildNativeTypeToScriptingClass (28ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (603ms)
+		LoadAssemblies (792ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (24ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (28112ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (3117ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (39ms)
+			SetLoadedEditorAssemblies (51ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (320ms)
+			ProcessInitializeOnLoadAttributes (2518ms)
+			ProcessInitializeOnLoadMethodAttributes (125ms)
+			AfterProcessingInitializeOnLoad (63ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (40ms)
+Refreshing native plugins compatible for Editor in 3.90 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2499.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 8.139400 ms (FindLiveObjects: 0.292900 ms CreateObjectMapping: 0.199700 ms MarkObjects: 7.485700 ms  DeleteObjects: 0.159500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 43.935 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 53.223 seconds
+Domain Reload Profiling: 97157ms
+	BeginReloadAssembly (43363ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (468ms)
+		LoadAssemblies (588ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (53224ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (937ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (116ms)
+			ProcessInitializeOnLoadAttributes (732ms)
+			ProcessInitializeOnLoadMethodAttributes (51ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 2.37 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2502.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 4.244200 ms (FindLiveObjects: 0.307800 ms CreateObjectMapping: 0.246200 ms MarkObjects: 3.651500 ms  DeleteObjects: 0.037400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.001 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.615 seconds
+Domain Reload Profiling: 2626ms
+	BeginReloadAssembly (480ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (63ms)
+	RebuildNativeTypeToScriptingClass (22ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (374ms)
+		LoadAssemblies (506ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1617ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (957ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (128ms)
+			ProcessInitializeOnLoadAttributes (739ms)
+			ProcessInitializeOnLoadMethodAttributes (51ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
+Refreshing native plugins compatible for Editor in 1.89 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2505.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 4.904000 ms (FindLiveObjects: 0.290600 ms CreateObjectMapping: 0.189400 ms MarkObjects: 4.382700 ms  DeleteObjects: 0.039900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.661 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.425 seconds
+Domain Reload Profiling: 2084ms
+	BeginReloadAssembly (354ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (195ms)
+		LoadAssemblies (291ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (13ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1426ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (952ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (17ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (115ms)
+			ProcessInitializeOnLoadAttributes (755ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (15ms)
+Refreshing native plugins compatible for Editor in 4.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2508.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 3.942600 ms (FindLiveObjects: 0.246500 ms CreateObjectMapping: 0.206900 ms MarkObjects: 3.448900 ms  DeleteObjects: 0.039000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.667 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.280 seconds
+Domain Reload Profiling: 1944ms
+	BeginReloadAssembly (360ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (40ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (208ms)
+		LoadAssemblies (303ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1281ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (842ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (16ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (109ms)
+			ProcessInitializeOnLoadAttributes (658ms)
+			ProcessInitializeOnLoadMethodAttributes (38ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 2.42 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.1 KB). Loaded Objects now: 2511.
+Memory consumption went from 97.6 MB to 97.6 MB.
+Total: 4.419800 ms (FindLiveObjects: 0.327300 ms CreateObjectMapping: 0.197600 ms MarkObjects: 3.847500 ms  DeleteObjects: 0.046200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Import Request.
+  Time since last request: 7700.719176 seconds.
+  path: Assets/Prefabs/Menus/pointer.png
+  artifactKey: Guid(82a97229a41bcfb4f9956fe6d00e896d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Menus/pointer.png using Guid(82a97229a41bcfb4f9956fe6d00e896d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '1218c96cae7f183fb1a3c978fcecc7cb') in 0.193699 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 38.617935 seconds.
+  path: Assets/Fonts/sonic-1-2-game-over.ttf
+  artifactKey: Guid(356353062212d8a49913c834d1109b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/sonic-1-2-game-over.ttf using Guid(356353062212d8a49913c834d1109b2c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'a4b905cbb57533ef060df556aad581db') in 0.128742 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000052 seconds.
+  path: Assets/Fonts/zupra-3d-eye-fs.ttf
+  artifactKey: Guid(1a86be88b90fd764abd46470f880c4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/zupra-3d-eye-fs.ttf using Guid(1a86be88b90fd764abd46470f880c4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '67db20eb95fe456ed8eb070e694960eb') in 0.021699 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 38.152153 seconds.
+  path: Assets/images/controller 1-label.png
+  artifactKey: Guid(e3670dec079594443b287a97ef7baaea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/images/controller 1-label.png using Guid(e3670dec079594443b287a97ef7baaea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '32ee4500fa5e021311851312c1005056') in 0.317771 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredfall.png
+  artifactKey: Guid(55ba1efaf5a5f3342b6dbc181d87a522) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredfall.png using Guid(55ba1efaf5a5f3342b6dbc181d87a522) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ca58d63ff401f334c51b08771853d4ce') in 0.204584 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000481 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdjump.png
+  artifactKey: Guid(3ca3488f76485c94da38852e5067a601) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredholdjump.png using Guid(3ca3488f76485c94da38852e5067a601) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '338ba8c63e1d938f1ff2d2eae11b37a8') in 0.155294 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.266334 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdwalk2.png
+  artifactKey: Guid(f6e21bf02cb83ca439161a45ca927799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredholdwalk2.png using Guid(f6e21bf02cb83ca439161a45ca927799) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'cea5d90f72c8f882dad8e000a13b5307') in 0.167453 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000445 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredholdwalk3.png
+  artifactKey: Guid(6f0e8f16ac641d5409bef46a1ca49362) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredholdwalk3.png using Guid(6f0e8f16ac641d5409bef46a1ca49362) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ed7d7ee3161ee0099b826e29d0355f92') in 0.279981 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredstand.png
+  artifactKey: Guid(caf826074bc976846a6a1462b4bfa9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredstand.png using Guid(caf826074bc976846a6a1462b4bfa9ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '6a01b3e90894246726986a32c9c98cd1') in 0.294486 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000320 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredwalk4.png
+  artifactKey: Guid(e895d02f38a0cf144a1b21232c5e3d3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredwalk4.png using Guid(e895d02f38a0cf144a1b21232c5e3d3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'e2a89e687e0919e0541d7083bd59c562') in 0.215229 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000316 seconds.
+  path: Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun 1.png
+  artifactKey: Guid(e4af68389a5b8854cbe72c106c46c721) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun 1.png using Guid(e4af68389a5b8854cbe72c106c46c721) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '786a4b9ce04b972f5e7e39d60fae9782') in 0.301811 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun.png
+  artifactKey: Guid(f86ef6ca195151c4ea4b4cac2c983647) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Objects/Guns/ProtagBlaster/squirtgun.png using Guid(f86ef6ca195151c4ea4b4cac2c983647) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'ca034c74644c066e43e87ac6f4573f3d') in 0.182798 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredwalk2.png
+  artifactKey: Guid(30531e2233f8c774ea068b5a9e127cd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredwalk2.png using Guid(30531e2233f8c774ea068b5a9e127cd8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: 'fb77e19cf1a903b772542ea4b219f20b') in 0.167515 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000819 seconds.
+  path: Assets/Prefabs/ProtagRed/protagredwalk1.png
+  artifactKey: Guid(016a17e6cc33beb438cd84d2b635a015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ProtagRed/protagredwalk1.png using Guid(016a17e6cc33beb438cd84d2b635a015) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '39df3a1944cb4c4033d29e8ffc14cd8e') in 0.236823 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Prefabs/Player/tailclawclose.png
+  artifactKey: Guid(2798466e45427ae408c0df93e3199e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player/tailclawclose.png using Guid(2798466e45427ae408c0df93e3199e67) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 8 workers.
+ -> (artifact id: '11cba9f6a96046bda923ea2b789148a9') in 0.139350 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in 18.311 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.820 seconds
+Domain Reload Profiling: 21127ms
+	BeginReloadAssembly (17623ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (71ms)
+	RebuildCommonClasses (100ms)
+	RebuildNativeTypeToScriptingClass (35ms)
+	initialDomainReloadingComplete (84ms)
+	LoadAllAssembliesAndSetupDomain (463ms)
+		LoadAssemblies (651ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (23ms)
+			TypeCache.Refresh (10ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (2821ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1406ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (30ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (188ms)
+			ProcessInitializeOnLoadAttributes (1034ms)
+			ProcessInitializeOnLoadMethodAttributes (70ms)
+			AfterProcessingInitializeOnLoad (21ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (23ms)
+Refreshing native plugins compatible for Editor in 3.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2568.
+Memory consumption went from 98.0 MB to 97.9 MB.
+Total: 6.999400 ms (FindLiveObjects: 0.290300 ms CreateObjectMapping: 0.205900 ms MarkObjects: 6.444200 ms  DeleteObjects: 0.057500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.268 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.675 seconds
+Domain Reload Profiling: 3939ms
+	BeginReloadAssembly (632ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (21ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (60ms)
+	RebuildCommonClasses (96ms)
+	RebuildNativeTypeToScriptingClass (34ms)
+	initialDomainReloadingComplete (74ms)
+	LoadAllAssembliesAndSetupDomain (427ms)
+		LoadAssemblies (611ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (29ms)
+			TypeCache.Refresh (16ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (2676ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1631ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (34ms)
+			SetLoadedEditorAssemblies (14ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (228ms)
+			ProcessInitializeOnLoadAttributes (1260ms)
+			ProcessInitializeOnLoadMethodAttributes (75ms)
+			AfterProcessingInitializeOnLoad (19ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (33ms)
+Refreshing native plugins compatible for Editor in 5.23 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.1 KB). Loaded Objects now: 2571.
+Memory consumption went from 98.0 MB to 97.9 MB.
+Total: 7.628300 ms (FindLiveObjects: 0.336100 ms CreateObjectMapping: 0.285100 ms MarkObjects: 6.944000 ms  DeleteObjects: 0.061300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.884 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.871 seconds
+Domain Reload Profiling: 2751ms
+	BeginReloadAssembly (465ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (47ms)
+	RebuildCommonClasses (66ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (53ms)
+	LoadAllAssembliesAndSetupDomain (271ms)
+		LoadAssemblies (404ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (16ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1872ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1154ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (19ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (152ms)
+			ProcessInitializeOnLoadAttributes (890ms)
+			ProcessInitializeOnLoadMethodAttributes (64ms)
+			AfterProcessingInitializeOnLoad (21ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Refreshing native plugins compatible for Editor in 3.03 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2574.
+Memory consumption went from 98.0 MB to 97.9 MB.
+Total: 5.413600 ms (FindLiveObjects: 0.277900 ms CreateObjectMapping: 0.241900 ms MarkObjects: 4.829200 ms  DeleteObjects: 0.063100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.139 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.538 seconds
+Domain Reload Profiling: 2675ms
+	BeginReloadAssembly (487ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (68ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (522ms)
+		LoadAssemblies (442ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (237ms)
+			TypeCache.Refresh (187ms)
+				TypeCache.ScanAssembly (142ms)
+			ScanForSourceGeneratedMonoScriptInfo (38ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1539ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (807ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (15ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (144ms)
+			ProcessInitializeOnLoadAttributes (587ms)
+			ProcessInitializeOnLoadMethodAttributes (40ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (14ms)
+Refreshing native plugins compatible for Editor in 2.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1993 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 10 unused Assets / (26.0 KB). Loaded Objects now: 2577.
+Memory consumption went from 98.0 MB to 97.9 MB.
+Total: 3.506300 ms (FindLiveObjects: 0.225000 ms CreateObjectMapping: 0.144500 ms MarkObjects: 3.095100 ms  DeleteObjects: 0.040600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 1.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (3.1 KB). Loaded Objects now: 2577.
+Memory consumption went from 67.1 MB to 67.1 MB.
+Total: 3.411400 ms (FindLiveObjects: 0.226100 ms CreateObjectMapping: 0.132300 ms MarkObjects: 3.033900 ms  DeleteObjects: 0.018300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 10.58 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 1 unused Assets / (3.1 KB). Loaded Objects now: 2577.
+Memory consumption went from 66.9 MB to 66.9 MB.
+Total: 8.728500 ms (FindLiveObjects: 0.354100 ms CreateObjectMapping: 0.237800 ms MarkObjects: 8.086600 ms  DeleteObjects: 0.047900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/GunBehavior.cs: 47a0f3468d9969b0a60f2f7a1a09fd7d -> 
+  custom:scripting/monoscript/fileName/ProtagAnimator.cs: 6177143aa91074874a2a4878e107051b -> 
+  custom:scripting/monoscript/fileName/PlayerScript.cs: 0594854d06e1cf776e340655129ecf0c -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/SelectColor.cs: e185fda2efa7023b131b11d6d77598f9 -> 
+  custom:scripting/monoscript/fileName/PlayerInventory.cs: c5c7e2c06a5c2135f68eaadb62be68ca -> 
+  custom:scripting/monoscript/fileName/BlasterBullet.cs: 2324b7268e880952de13e820fc066dcb -> 
+  custom:scripting/monoscript/fileName/WeaponMenuController.cs: d5d5810ee7fdbe1228add692e36de214 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/RandomColorCamera.cs: efa782ebed181dfe217e32fd5d2b4420 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/InputManager.cs: 035a3fef92c9506b921b70bf497e82a5 -> dea24e3da8b083e8a28641430520c9c0
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:scripting/monoscript/fileName/AbilitiesMenuController.cs: 908cbee605f29cc5a49401e3951d1a12 -> 
+  custom:scripting/monoscript/fileName/GameMenuController.cs: b8c8449582d1f77d6ff200e8a2c762b7 -> 
+  custom:scripting/monoscript/fileName/Item.cs: edfd25bbe8f561e55c7415f9c3adacfe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LizardHook.cs: 3ca8517ab2f30f39f1a6ebf914dffb34 -> 
+  custom:scripting/monoscript/fileName/SceneHelper.cs: f635d03d8f253d56742d7c639be02f62 -> 
+  custom:scripting/monoscript/fileName/MainMenuController.cs: dc27e55ad6a0f2eb5a5212e8108cae21 -> 
+  custom:scripting/monoscript/fileName/CameraFollow.cs: de990732cc429467f8f49571d0872163 -> 
+  custom:scripting/precompiled-assembly-types:Assembly-CSharp: 44b452c24da889faa2057a337127a38e -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/ActionTimer.cs: b583ed095472f0ac0bb95a4d423a686f -> 

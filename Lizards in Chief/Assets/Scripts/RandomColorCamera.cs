@@ -11,7 +11,7 @@ public class RandomColorCamera : MonoBehaviour
     void Start()
     {
 
-        Random rand = new Random();
+        System.Random rand = new System.Random();
         GetComponent<Camera>().backgroundColor = colors[Random.Range(0, colors.Length)].color;
     }
 
