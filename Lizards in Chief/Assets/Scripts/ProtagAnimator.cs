@@ -94,7 +94,7 @@ public class ProtagAnimator : MonoBehaviour
     {
         if (player.HoldingObj && player.LookBack)
         {
-            anim.SetBool("LookingBackHold", true);
+            //anim.SetBool("LookingBackHold", true);
             anim.SetBool("LookingBack", false);
         }
         else if (player.LookBack)
@@ -105,7 +105,7 @@ public class ProtagAnimator : MonoBehaviour
         else
         {
             anim.SetBool("LookingBack", false);
-            anim.SetBool("LookingBackHold", false);
+            //anim.SetBool("LookingBackHold", false);
         }
     }
 

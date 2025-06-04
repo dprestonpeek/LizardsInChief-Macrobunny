@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     AudioClip walk2;
 
+    InputManager input;
+
     float lastBlipX;
     bool rightStep = true;
     bool playStep = true;
@@ -124,7 +126,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField]
     GameMenuController gameMenu;
 
-    Gamepad gamepad;
+    //Gamepad gamepad;
 
     private float timer = 0.0f;
     private int globalSeconds = 0;
@@ -133,7 +135,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gamepad = Gamepad.current;
+        input = GetComponent<InputManager>();
+        //gamepad = Gamepad.current;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<ProtagAnimator>();
         inventory = GetComponentInChildren<PlayerInventory>();
@@ -150,7 +153,7 @@ public class PlayerScript : MonoBehaviour
 
         #region Inventory
 
-        if (gamepad.rightShoulder.isPressed)
+        if (input.GrabButtonPressed())
         {
             if (CanGrabOrDrop)
             {
@@ -173,8 +176,8 @@ public class PlayerScript : MonoBehaviour
 
         anim.Holding();
 
-        rightJoystickHor = gamepad.rightStick.ReadValue().x;//Input.GetAxis("InventoryHor");
-        rightJoystickVert = gamepad.rightStick.ReadValue().y;//Input.GetAxis("InventoryVert");
+        rightJoystickHor = input.GetRightStickValues().x;
+        rightJoystickVert = input.GetRightStickValues().y;
 
         if (inventory.ShowInventory(rightJoystickHor, rightJoystickVert))
         {
@@ -225,7 +228,7 @@ public class PlayerScript : MonoBehaviour
         //Fire
         if (gunInHands)
         {
-            if (gamepad.rightTrigger.ReadValue() == 1)//Input.GetAxis("Fire1") == 1)
+            if (input.FireButtonPressed() == 1)
             {
                 gunInHands.Shoot(Direction);
             }
@@ -240,9 +243,9 @@ public class PlayerScript : MonoBehaviour
     private void Update()
     {
         #region Pause
-        if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 1)
+        if (input.StartButtonPressed() && Time.timeScale == 1)
             gameMenu.Toggle(true);
-        else if (gamepad.startButton.wasPressedThisFrame && Time.timeScale == 0)
+        else if (input.StartButtonPressed() && Time.timeScale == 0)
             gameMenu.Toggle(false);
         #endregion
     }
@@ -291,7 +294,7 @@ public class PlayerScript : MonoBehaviour
             anim.Grounded();
         }
 
-        horLAxis = gamepad.leftStick.ReadValue().x;//Input.GetAxis("Horizontal");
+        horLAxis = input.GetLeftStickValues().x;
 
         if (GrabbingLedge)
         {
@@ -366,7 +369,7 @@ public class PlayerScript : MonoBehaviour
         xVelocity = rb.velocity.x;
 
         //Jump
-        if (gamepad.crossButton.isPressed || gamepad.circleButton.isPressed) //Input.GetButton("Jump"))
+        if (input.JumpButtonPressed())
         {
             if (CanJump)
             {
@@ -392,7 +395,7 @@ public class PlayerScript : MonoBehaviour
                 jumpVelocity = yVelocity;
             }
         }
-        else
+            else
         {
             JumpHold = false;
             if (jumpCount == 1 && HasUnlockedDoubleJump)
@@ -474,7 +477,7 @@ public class PlayerScript : MonoBehaviour
             PostDash = TimerTick(PostDashTime);
             CanDash = false;
         }
-        else if (gamepad.leftShoulder.isPressed && CanDash) //Input.GetButtonDown("Dash") 
+        else if (input.DashButtonPressed() && CanDash) //Input.GetButtonDown("Dash") 
         {
             if (Jumping)
             {
@@ -491,7 +494,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         //Grab Ledge
-        if (gamepad.rightShoulder.isPressed && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping) //Input.GetButton("Grab")
+        if (input.GrabButtonPressed() && HasUnlockedLedgeGrabbing && !objInHands && !LedgeJumping) //Input.GetButton("Grab")
         {
             GrabLedge();
         }
