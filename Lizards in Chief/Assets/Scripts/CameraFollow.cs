@@ -7,6 +7,12 @@ public class CameraFollow : MonoBehaviour
     PlayerScript player;
     [SerializeField]
     float heightLimit = 4;
+
+    [SerializeField]
+    float xOffset = 0;
+    [SerializeField]
+    float yOffset = -1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +22,17 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float yPos;
+        float xPos, yPos;
         if (player.transform.position.y > heightLimit)
         {
-            yPos = player.transform.position.y - heightLimit;
+            yPos = player.transform.position.y - heightLimit + yOffset;
         }
         else
         {
-            yPos = 0;
+            yPos = yOffset;
         }
-        transform.position = new Vector3(player.transform.position.x, yPos, transform.position.z);
+        xPos = player.transform.position.x + xOffset;
+
+        transform.position = new Vector3(xPos, yPos, transform.position.z);
     }
 }

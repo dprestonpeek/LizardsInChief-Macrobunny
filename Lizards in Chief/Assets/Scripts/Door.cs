@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField]
+    string SceneToTravelTo = "";
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene("Gym2", LoadSceneMode.Single);
+        SceneManager.LoadScene(SceneToTravelTo, LoadSceneMode.Single);
     }
 }
