@@ -21,6 +21,9 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(SceneToTravelTo, LoadSceneMode.Single);
+        if (collision.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(SceneToTravelTo, LoadSceneMode.Single);
+        }
     }
 }

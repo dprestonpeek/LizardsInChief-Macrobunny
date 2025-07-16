@@ -28,6 +28,7 @@ public class PlayerScript : MonoBehaviour
     public bool Walking;
     public bool HoldingObj;
     public bool GrabbingLedge;
+    public bool Attacking;
     public int Direction;
 
     [SerializeField]
@@ -58,7 +59,7 @@ public class PlayerScript : MonoBehaviour
 
     List<string> grabbableTags = new List<string>
     {
-        "Object", "Weapon"
+        "Object", "Weapon", "Projectile"
     };
 
     [SerializeField]
@@ -120,6 +121,9 @@ public class PlayerScript : MonoBehaviour
     Item itemInHands;
     [SerializeField]
     GunBehavior gunInHands;
+    [SerializeField]
+    ProjectileBehavior projectileInHands;
+    GameObject lastTouchedItem;
 
     ProtagAnimator anim;
     PlayerInventory inventory;
@@ -233,6 +237,19 @@ public class PlayerScript : MonoBehaviour
                 gunInHands.Shoot(Direction);
             }
         }
+        //Throw
+        else if (projectileInHands)
+        {
+            if (input.FireButtonPressed() == 1)
+            {
+                SoftDropObject();
+                projectileInHands.Throw(lastTouchedItem, Direction);
+
+                //Finish what the soft drop started
+                projectileInHands = null;
+                lastTouchedItem = null;
+            }
+        }
         #endregion
 
         #region Visuals
@@ -262,8 +279,19 @@ public class PlayerScript : MonoBehaviour
     public GunBehavior GetGunInHands()
     {
         if (!gunInHands)
+        {
             return null;
+        }
         return gunInHands.GetComponent<GunBehavior>();
+    }
+
+    public ProjectileBehavior GetProjectileInHands()
+    {
+        if (!projectileInHands)
+        {
+            return null;
+        }
+        return projectileInHands.GetComponent<ProjectileBehavior>();
     }
 
     private bool IntToBool(int input)
@@ -687,6 +715,10 @@ public class PlayerScript : MonoBehaviour
                 gunInHands.SetFireRate(weaponMenu.GetFireRate());
                 gunInHands.SetRicochets(weaponMenu.GetRicochets());
             }
+            if (itemInHands.type == Item.Type.PROJECTILE)
+            {
+                projectileInHands = objInHands.GetComponent<ProjectileBehavior>();
+            }
 
             Vector2 newPos = hands.transform.localPosition;
             newPos.x = .4f * Direction;
@@ -712,6 +744,12 @@ public class PlayerScript : MonoBehaviour
 
     void DropObject()
     {
+        SoftDropObject();
+        projectileInHands = null;
+    }
+
+    void SoftDropObject()
+    {
         if (objInHands != null)
         {
             objInHands.GetComponent<Rigidbody2D>().simulated = true;
@@ -720,8 +758,10 @@ public class PlayerScript : MonoBehaviour
             Vector2 newPos = objInHands.transform.position;
             newPos.x += 1 * Direction;
             objInHands.transform.position = newPos;
+            lastTouchedItem = objInHands.gameObject;
             objInHands = null;
             itemInHands = null;
+            gunInHands = null;
             HoldingObj = false;
 
             Vector2 newRot = hands.transform.eulerAngles;
