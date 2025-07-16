@@ -243,7 +243,7 @@ public class PlayerScript : MonoBehaviour
             if (input.FireButtonPressed() == 1)
             {
                 SoftDropObject();
-                projectileInHands.Throw(lastTouchedItem, Direction);
+                projectileInHands.Throw(lastTouchedItem, Direction, input.GetLeftStickValues().y * 1.35f);
 
                 //Finish what the soft drop started
                 projectileInHands = null;
@@ -320,6 +320,12 @@ public class PlayerScript : MonoBehaviour
             Jumping = false;
             DoubleJump = false;
             anim.Grounded();
+
+            Debug.Log("Grounded");
+        }
+        else
+        {
+            Debug.Log("Ungrounded");
         }
 
         horLAxis = input.GetLeftStickValues().x;
