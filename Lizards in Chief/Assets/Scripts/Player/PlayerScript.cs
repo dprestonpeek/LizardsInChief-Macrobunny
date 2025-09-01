@@ -135,6 +135,7 @@ public class PlayerScript : MonoBehaviour
     private float timer = 0.0f;
     private int globalSeconds = 0;
     public int frameTimer = 0;
+    private bool firstSteps = true;
 
     // Start is called before the first frame update
     void Start()
@@ -354,7 +355,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     if (Direction == 1)
                     {
-                        if (transform.position.x > lastBlipX + .5f)
+                        if (transform.position.x > lastBlipX + .5f || firstSteps)
                         {
                             if (rightStep)
                             {
@@ -367,6 +368,7 @@ public class PlayerScript : MonoBehaviour
                                 rightStep = true;
                             }
                             lastBlipX = transform.position.x;
+                            firstSteps = false;
                         }
                     }
                     else if (Direction == -1)

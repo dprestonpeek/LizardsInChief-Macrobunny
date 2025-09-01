@@ -86,7 +86,7 @@ public class ProtagAnimator : MonoBehaviour
     public void Holding()
     {
         anim.SetBool("Holding", player.HoldingObj);
-        Debug.Log(player.HoldingObj);
+        //Debug.Log(player.HoldingObj);
     }
 
     public void LedgeGrabbing()
