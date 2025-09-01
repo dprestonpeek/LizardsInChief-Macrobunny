@@ -64,30 +64,30 @@ public class PlayerScript : MonoBehaviour
 
     [SerializeField]
     [Range(1, 10)]
-    private int jumpSpeed = 7;
+    private int jumpSpeed = 10;
     [SerializeField]
     [Range(1, 10)]
-    private int jumpHeight = 6;
+    private int jumpHeight = 8;
     [SerializeField]
     [Range(1, 10)]
-    private int extraHeight = 6;
+    private int extraHeight = 4;
     [SerializeField]
     [Range(1, 10)]
     private int extraHeightSpeed = 1;
     [SerializeField]
     [Range(1, 10)]
-    private int floatyFall = 3;
+    private int floatyFall = 4;
     [SerializeField]
     [Range(1, 15)]
-    private int fallSpeed = 3;
+    private int fallSpeed = 12;
     private int jumpCount = 0;
 
     [SerializeField]
     [Range(1, 10)]
-    private int walkSpeed = 5;
+    private int walkSpeed = 6;
     [SerializeField]
     [Range(1, 10)]
-    private int dashSpeed = 5;
+    private int dashSpeed = 10;
     [SerializeField]
     [Range(1, 10)]
     private int dashTime = 1;
@@ -373,7 +373,7 @@ public class PlayerScript : MonoBehaviour
                     }
                     else if (Direction == -1)
                     {
-                        if (transform.position.x < lastBlipX - .5f)
+                        if (transform.position.x < lastBlipX - .5f || firstSteps)
                         {
                             if (rightStep)
                             {
@@ -386,6 +386,7 @@ public class PlayerScript : MonoBehaviour
                                 rightStep = true;
                             }
                             lastBlipX = transform.position.x;
+                            firstSteps = false;
                         }
                     }
                 }
@@ -418,7 +419,9 @@ public class PlayerScript : MonoBehaviour
             if (Falling)
             {
                 if (HasUnlockedFloatFall && !CanJump)
-                    FloatFall();
+                {
+                    //FloatFall();
+                }
             }
             if (yVelocity > jumpVelocity)
             {
@@ -624,7 +627,12 @@ public class PlayerScript : MonoBehaviour
 
     void ForceFall()
     {
-        rb.AddForce(Vector2.down * 5 * fallSpeed);
+        int constant = 5;
+        if (HasUnlockedFloatFall)
+        {
+            constant = 2;
+        }
+        rb.AddForce(Vector2.down * constant * fallSpeed);
     }
 
     void Dash()

@@ -630,6 +630,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1408717988802543869, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ledge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068548, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_Name
+      value: Ledge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ledge
+      objectReference: {fileID: 0}
     - target: {fileID: 6172311102242068554, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
         type: 3}
       propertyPath: m_Enabled
@@ -1299,8 +1324,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
+      propertyPath: HasUnlockedDashing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
       propertyPath: HasUnlockedFloatFall
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: HasUnlockedDoubleJump
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029904546602786984, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: HasUnlockedLedgeGrabbing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5029904546602786986, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
@@ -3851,6 +3891,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1408717988802543869, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ledge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_Name
+      value: Ledge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6172311102242068552, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ledge
       objectReference: {fileID: 0}
     - target: {fileID: 6172311102242068554, guid: 9be2f615a0f9ce54aa1dc0002803ba25,
         type: 3}
