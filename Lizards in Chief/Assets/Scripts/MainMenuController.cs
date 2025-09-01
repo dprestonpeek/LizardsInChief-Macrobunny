@@ -28,7 +28,7 @@ public class MainMenuController : MonoBehaviour
 
     public void Play()
     {
-        SceneHelper.LoadSingleScene(SceneHelper.Scenes.Playground);
+        SceneHelper.LoadSingleScene(SceneHelper.Scenes.Gym);
     }
 
     public void DontPlay()
