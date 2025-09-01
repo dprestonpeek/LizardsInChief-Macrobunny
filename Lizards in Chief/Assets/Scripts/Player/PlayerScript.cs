@@ -437,7 +437,7 @@ public class PlayerScript : MonoBehaviour
 
         yVelocity = rb.velocity.y;
 
-        if (yVelocity > .00f)
+        if (yVelocity > .01f)
         {
             Jumping = true;
             anim.Jumping();
