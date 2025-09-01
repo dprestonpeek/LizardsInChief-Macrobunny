@@ -136,6 +136,8 @@ public class PlayerScript : MonoBehaviour
     private int globalSeconds = 0;
     public int frameTimer = 0;
     private bool firstSteps = true;
+    private bool chargingThrow = false;
+    private float chargingPower = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -243,12 +245,22 @@ public class PlayerScript : MonoBehaviour
         {
             if (input.FireButtonPressed() == 1)
             {
+                chargingThrow = true;
+                if (chargingPower < 8)
+                {
+                    chargingPower += .5f;
+                }
+            }
+            if (input.FireButtonPressed() == 0 && chargingThrow)
+            {
                 SoftDropObject();
-                projectileInHands.Throw(lastTouchedItem, Direction, input.GetLeftStickValues().y * 1.35f);
+                projectileInHands.Throw(lastTouchedItem, Direction, chargingPower, input.GetLeftStickValues().y * 1.35f);
 
                 //Finish what the soft drop started
                 projectileInHands = null;
                 lastTouchedItem = null;
+                chargingThrow = false;
+                chargingPower = 0;
             }
         }
         #endregion

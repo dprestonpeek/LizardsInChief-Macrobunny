@@ -20,9 +20,9 @@ public class ProjectileBehavior : MonoBehaviour
 
     }
 
-    public void Throw(GameObject objInHands, int direction, float verticalAngle)
+    public void Throw(GameObject objInHands, int direction, float power, float verticalAngle)
     {
-        objInHands.GetComponent<Rigidbody2D>().AddForce(new Vector2(objInHands.transform.right.x, verticalAngle) * projSpeed * 8, ForceMode2D.Impulse);
+        objInHands.GetComponent<Rigidbody2D>().AddForce(new Vector2(objInHands.transform.right.x, verticalAngle) * projSpeed * power, ForceMode2D.Impulse);
     }
 
 }
