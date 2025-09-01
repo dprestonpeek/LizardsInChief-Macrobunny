@@ -101,6 +101,6 @@ public class GameMenuController : MonoBehaviour
     public void ResetScene()
     {
         Time.timeScale = 1;
-        SceneHelper.LoadSingleScene(SceneHelper.Scenes.Playground);
+        SceneHelper.ResetCurrentScene();
     }
 }

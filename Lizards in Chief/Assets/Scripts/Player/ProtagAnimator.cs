@@ -72,7 +72,10 @@ public class ProtagAnimator : MonoBehaviour
 
     public void Jumping()
     {
-        anim.SetBool("Jumping", player.Jumping);
+        if (!player.IsGrounded())
+        {
+            anim.SetBool("Jumping", player.Jumping);
+        }
     }
 
     public void Falling()
@@ -83,6 +86,7 @@ public class ProtagAnimator : MonoBehaviour
     public void Holding()
     {
         anim.SetBool("Holding", player.HoldingObj);
+        Debug.Log(player.HoldingObj);
     }
 
     public void LedgeGrabbing()

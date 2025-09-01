@@ -320,12 +320,6 @@ public class PlayerScript : MonoBehaviour
             Jumping = false;
             DoubleJump = false;
             anim.Grounded();
-
-            Debug.Log("Grounded");
-        }
-        else
-        {
-            Debug.Log("Ungrounded");
         }
 
         horLAxis = input.GetLeftStickValues().x;
@@ -441,7 +435,7 @@ public class PlayerScript : MonoBehaviour
 
         yVelocity = rb.velocity.y;
 
-        if (yVelocity > .1f)
+        if (yVelocity > .00f)
         {
             Jumping = true;
             anim.Jumping();
@@ -804,7 +798,7 @@ public class PlayerScript : MonoBehaviour
         anim.LedgeGrabbing();
     }
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit2D hit;
         int layerMask = 1 << 8;
