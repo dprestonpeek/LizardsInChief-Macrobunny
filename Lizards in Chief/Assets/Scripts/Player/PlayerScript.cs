@@ -409,7 +409,7 @@ public class PlayerScript : MonoBehaviour
             Walking = false;
         }
 
-        xVelocity = rb.velocity.x;
+        xVelocity = rb.linearVelocity.x;
 
         //Jump
         if (input.JumpButtonPressed())
@@ -450,7 +450,7 @@ public class PlayerScript : MonoBehaviour
             }
         }
 
-        yVelocity = rb.velocity.y;
+        yVelocity = rb.linearVelocity.y;
 
         if (yVelocity > .01f)
         {
@@ -563,7 +563,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (Dashing)
         {
-            rb.velocity = new Vector2(dir * airwalkModifier * dashSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(dir * airwalkModifier * dashSpeed, rb.linearVelocity.y);
         }
         else if (PostDash && (Jumping || Falling))
         {
@@ -571,7 +571,7 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            rb.velocity = new Vector2(dir * airwalkModifier * walkSpeed, rb.velocity.y);
+            rb.linearVelocity = new Vector2(dir * airwalkModifier * walkSpeed, rb.linearVelocity.y);
         }
         walkVelocity = xVelocity;
     }
@@ -612,7 +612,7 @@ public class PlayerScript : MonoBehaviour
             {
                 //force *= 1.5f;
                 FallingDoubleJump = false;
-                rb.velocity = new Vector2(rb.velocity.x, 0);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0);
             }
             DoubleJump = false;
         }
@@ -622,7 +622,7 @@ public class PlayerScript : MonoBehaviour
 
     void AddHeightToJump()
     {
-        if (rb.velocity.y < jumpHeight)
+        if (rb.linearVelocity.y < jumpHeight)
         {
             rb.AddForce(Vector2.up * jumpSpeed * (extraHeight / 3));
         }
@@ -686,7 +686,7 @@ public class PlayerScript : MonoBehaviour
             {
                 objInHands = hit.transform.gameObject;
                 Rigidbody2D objRb = objInHands.GetComponent<Rigidbody2D>();
-                objRb.velocity = Vector2.zero;
+                objRb.linearVelocity = Vector2.zero;
                 objRb.simulated = false;
                 objInHands.layer = 8;
                 objInHands.transform.eulerAngles = Vector2.zero;
@@ -704,7 +704,7 @@ public class PlayerScript : MonoBehaviour
             {
                 objInHands = hit.transform.gameObject;
                 Rigidbody2D objRb = objInHands.GetComponent<Rigidbody2D>();
-                objRb.velocity = Vector2.zero;
+                objRb.linearVelocity = Vector2.zero;
                 objRb.simulated = false;
                 objInHands.layer = 8;
                 objInHands.transform.eulerAngles = Vector2.zero;
@@ -804,7 +804,7 @@ public class PlayerScript : MonoBehaviour
             {
                 Debug.DrawRay(new Vector2(transform.position.x, transform.position.y + 1), Vector2.right * Direction * 1.25f, Color.yellow);
 
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
                 rb.simulated = false;
                 transform.position = Vector2.Lerp(transform.position, new Vector2(hit.collider.transform.position.x + (.75f * Direction) + (hit.collider.transform.localScale.x), hit.collider.transform.position.y), .05f);
                 GrabbingLedge = true;

@@ -1182,6 +1182,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 85935712379848394, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 355397323539414693, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1247,6 +1252,11 @@ PrefabInstance:
       propertyPath: menus.Array.data[3]
       value: 
       objectReference: {fileID: 348868392}
+    - target: {fileID: 2755800516178494012, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4042210039776534962, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1406,6 +1416,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441867124503891090, guid: f46b71e0fb254e44b9b0a90df2a898b0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7282045181558849892, guid: f46b71e0fb254e44b9b0a90df2a898b0,
         type: 3}

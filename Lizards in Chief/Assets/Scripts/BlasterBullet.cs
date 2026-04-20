@@ -54,7 +54,7 @@ public class BlasterBullet : MonoBehaviour
     {
         if (!other.gameObject.Equals(sourceWeapon) && !other.gameObject.CompareTag("Bullet"))
         {
-            if (rb.velocity.x < .1f && rb.velocity.y < .1f)
+            if (rb.linearVelocity.x < .1f && rb.linearVelocity.y < .1f)
             {
                 Destroy(gameObject);
             }
